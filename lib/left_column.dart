@@ -34,7 +34,7 @@ class LeftColumn extends StatelessWidget {
       Card(
         child: ListTile(
           leading: Icon(Icons.search),
-          title: Text('Search connections'),
+          title: Text('Search connections',style: TextStyle(fontSize: 14),),
         ),
       ),
     );
@@ -65,16 +65,24 @@ class LeftColumn extends StatelessWidget {
     ];
     double width = (2 / 100) * (MediaQuery.of(context).size.width);
     for (int i = 0; i < labels.length; i++) {
-      menuItems.add(Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Icon(
-            icons[i],
-            size: width,
-          ),
-          Text(labels[i]),
-        ],
+      menuItems.add(GestureDetector(
+        onTap: () {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => Container(
+                    color: Colors.white,
+                  )));
+        },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Icon(
+              icons[i],
+              size: width,
+            ),
+            Text(labels[i]),
+          ],
+        ),
       ));
     }
     menuItems.add(
