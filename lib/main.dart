@@ -4,10 +4,7 @@ import 'package:flutter/services.dart';
 import 'left_column.dart';
 
 void main() {
-  SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft])
-      .then((_) {
-    runApp(MyApp());
-  });
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -27,7 +24,7 @@ class MyApp extends StatelessWidget {
 class HomePage extends StatelessWidget {
   List<Widget> _buildMiddleColumRowYellow(BuildContext context) {
     List<Widget> boxes = List();
-    double width = ((MediaQuery.of(context).size.width / 1.8) / 6) - 16;
+    double width = ((MediaQuery.of(context).size.width / 1.5) / 6) - 16;
     double height = (MediaQuery.of(context).size.height / 11) - 8;
     for (int i = 0; i < 6; i++) {
       boxes.add(Card(
@@ -43,7 +40,7 @@ class HomePage extends StatelessWidget {
 
   List<Widget> _buildMiddleColumRowWhite(BuildContext context) {
     List<Widget> boxes = List();
-    double width = ((MediaQuery.of(context).size.width / 1.8) / 5) - 16;
+    double width = ((MediaQuery.of(context).size.width / 1.5) / 5) - 16;
     double height = (MediaQuery.of(context).size.height / 9) - 8;
     for (int i = 0; i < 5; i++) {
       boxes.add(Card(
@@ -60,7 +57,7 @@ class HomePage extends StatelessWidget {
   List<Widget> _buildMiddleColumRowWhiteSlim(
       BuildContext context, Color tileColor) {
     List<Widget> boxes = List();
-    double width = ((MediaQuery.of(context).size.width / 1.8) / 5) - 16;
+    double width = ((MediaQuery.of(context).size.width / 1.5) / 5) - 16;
     double height = (MediaQuery.of(context).size.height / 11) - 8;
     for (int i = 0; i < 5; i++) {
       boxes.add(Card(
@@ -76,7 +73,7 @@ class HomePage extends StatelessWidget {
 
   List<Widget> _buildMiddleColumRowBrown(BuildContext context) {
     List<Widget> boxes = List();
-    double width = ((MediaQuery.of(context).size.width / 1.8) / 5) - 16;
+    double width = ((MediaQuery.of(context).size.width / 1.5) / 5) - 16;
     double height = (MediaQuery.of(context).size.height / 11) - 8;
     for (int i = 0; i < 4; i++) {
       boxes.add(Card(
@@ -246,6 +243,10 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.landscapeRight,
+      DeviceOrientation.landscapeLeft,
+    ]);
     double size = (1 / 100) * (MediaQuery.of(context).size.width);
     double height = (MediaQuery.of(context).size.height / 12);
     return Scaffold(
@@ -270,7 +271,7 @@ class HomePage extends StatelessWidget {
                   )),
                   //Middle Column
                   Expanded(
-                    flex: 4,
+                    flex: 6,
                     child: Column(
                       children: <Widget>[
                         Padding(
@@ -771,10 +772,10 @@ class HomePage extends StatelessWidget {
             child: Center(
                 child: Text(
               'Add Button',
-              style: TextStyle(fontSize: size, color: Colors.black),
+              style: TextStyle(fontSize: size/1.5, color: Colors.black),
             )),
-            height: height,
-            width: height * 1.45,
+            height: height/1.5,
+            width: height,
           ),
         ),
       );

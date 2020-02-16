@@ -6,6 +6,7 @@ class LeftColumn extends StatelessWidget {
   }) : super(key: key);
 
   List<Widget> _buildSideMenu(BuildContext context) {
+    double width = (2 / 100) * (MediaQuery.of(context).size.width);
     List<Widget> menuItems = List();
     menuItems.add(
       Padding(
@@ -32,11 +33,17 @@ class LeftColumn extends StatelessWidget {
     );
     menuItems.add(
       Card(
-        child: ListTile(
-          leading: Icon(Icons.search),
-          title: Text('Search connections',style: TextStyle(fontSize: 14),),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: FlatButton.icon(
+        onPressed: () {},
+        icon: Icon(Icons.search),
+        label: Text(
+            'Search',
+            style: TextStyle(fontSize: width / 2),
         ),
       ),
+          )),
     );
 
     var labels = [
@@ -63,7 +70,7 @@ class LeftColumn extends StatelessWidget {
       Icons.table_chart,
       Icons.control_point_duplicate
     ];
-    double width = (2 / 100) * (MediaQuery.of(context).size.width);
+
     for (int i = 0; i < labels.length; i++) {
       menuItems.add(GestureDetector(
         onTap: () {
