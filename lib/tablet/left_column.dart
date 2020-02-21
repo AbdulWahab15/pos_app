@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'home.dart';
+
 class LeftColumn extends StatelessWidget {
   final int selectedIndex;
   const LeftColumn({
@@ -88,24 +90,30 @@ class LeftColumn extends StatelessWidget {
     for (int i = 0; i < labels.length; i++) {
       menuItems.add(GestureDetector(
         onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => SafeArea(
-                    child: Material(
-                      child: Row(
-                        children: <Widget>[
-                          Expanded(
-                              child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: LeftColumn(
-                              selectedIndex: i,
-                            ),
-                          )),
-                          Expanded(flex: 4, child: Container()),
-                          Expanded(flex: 2, child: Container()),
-                        ],
+          if (i == 0) {
+            Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => HomePage(),
+            ));
+          } else {
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => SafeArea(
+                      child: Material(
+                        child: Row(
+                          children: <Widget>[
+                            Expanded(
+                                child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: LeftColumn(
+                                selectedIndex: i,
+                              ),
+                            )),
+                            Expanded(flex: 4, child: Container()),
+                            Expanded(flex: 2, child: Container()),
+                          ],
+                        ),
                       ),
-                    ),
-                  )));
+                    )));
+          }
         },
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
