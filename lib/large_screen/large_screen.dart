@@ -100,15 +100,19 @@ class HomePage extends StatelessWidget {
     String dropdownValue = 'Mega';
     return Row(
       children: <Widget>[
-        IconButton(icon: Icon(Icons.menu), onPressed: () {}),
+        IconButton(icon: Icon(Icons.format_align_right,color: Colors.amberAccent,), onPressed: () {}),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8),
-          child: Text('Remark'),
+          child: Text('Oubba'),
         ),
-        IconButton(icon: Icon(Icons.arrow_back_ios), onPressed: () {}),
+        Padding(
+          padding: const EdgeInsets.only(left:32.0),
+          child: IconButton(icon: Icon(Icons.arrow_back_ios), onPressed: () {}),
+        ),
         Padding(
           padding: const EdgeInsets.only(left: 16),
           child: DropdownButton(
+            icon: Icon(Icons.keyboard_arrow_down),
               items: options.map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
@@ -124,101 +128,224 @@ class HomePage extends StatelessWidget {
               }),
         ),
         Expanded(child: Container()),
-        PopupMenuButton(
-          itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-            const PopupMenuItem<String>(
-              value: 'Value1',
-              child: Text('\u{1F3F3} English'),
+//        PopupMenuButton(
+//          itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+//            const PopupMenuItem<String>(
+//              value: 'Value1',
+//              child: Text('\u{1F3F3} English'),
+//            ),
+//            const PopupMenuItem<String>(
+//              value: 'Value2',
+//              child: Text('\u{1F3F4} French'),
+//            ),
+//          ],
+//          child: Text('ENG'),
+//        ),
+      Padding(
+        padding: const EdgeInsets.only(left:8.0,right:8.0),
+        child: Container(
+          height: 45,
+          child: OutlineButton(
+
+            child: Text('Button',style: TextStyle(color: Colors.grey),),
+            color:Colors.grey,
+
+            borderSide: BorderSide(
+              color:Colors.grey,
+              style: BorderStyle.solid,
+              width: 0.8
+
             ),
-            const PopupMenuItem<String>(
-              value: 'Value2',
-              child: Text('\u{1F3F4} French'),
-            ),
-          ],
-          child: Text('ENG'),
+            onPressed: (){
+
+            },
+          ),
         ),
+      ),
         Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: PopupMenuButton(
-            itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-              PopupMenuItem<String>(
-                value: 'Value1',
-                child: FlatButton.icon(
-                    onPressed: null,
-                    icon: Icon(Icons.account_circle),
-                    label: Text('Profile')),
+          padding: const EdgeInsets.only(left:8.0,right:8.0),
+          child: Container(
+            height: 45,
+
+            child: OutlineButton(
+              child: Text('Button',style: TextStyle(color: Colors.amberAccent),),
+              color:Colors.amberAccent,
+              borderSide: BorderSide(
+                color:Colors.amberAccent,
+                  style: BorderStyle.solid,
+                  width: 0.8
+
+
               ),
-              const PopupMenuItem<String>(
-                value: 'Value2',
-                child: Divider(),
-              ),
-              PopupMenuItem<String>(
-                value: 'Value3',
-                child: FlatButton.icon(
-                    onPressed: null,
-                    icon: Icon(Icons.power_settings_new),
-                    label: Text('Logout')),
-              ),
-            ],
-            child: CircleAvatar(
-              backgroundColor: Colors.pink,
+              onPressed: (){
+
+              },
             ),
           ),
         ),
-        PopupMenuButton(
-          itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-            PopupMenuItem<String>(
-              value: 'Value1',
-              child: Text('NOTIFICATIONS'),
-            ),
-            const PopupMenuItem<String>(
-              value: 'Value2',
-              child: Divider(
-                height: 0,
+        Padding(
+          padding: const EdgeInsets.only(left:8.0,right:8.0),
+          child: Container(
+            height: 45,
+
+            child: OutlineButton(
+              child: Text('Button',style: TextStyle(color: Colors.red),),
+              color:Colors.red,
+              borderSide: BorderSide(
+                color:Colors.red,
+                  style: BorderStyle.solid,
+                  width: 0.8
+
               ),
+              onPressed: (){
+
+              },
             ),
-            PopupMenuItem<String>(
-              value: 'Value3',
-              child: ListTile(
-                leading: CircleAvatar(
-                  backgroundColor: Colors.red,
-                ),
-                title: Text('Completed the task'),
-                subtitle: Text('2 days ago'),
-              ),
-            ),
-            PopupMenuItem<String>(
-              value: 'Value3',
-              child: ListTile(
-                leading: CircleAvatar(
-                  backgroundColor: Colors.blue,
-                ),
-                title: Text('Settings updated'),
-                subtitle: Text('3 days ago'),
-              ),
-            ),
-            PopupMenuItem<String>(
-              value: 'Value3',
-              child: ListTile(
-                leading: CircleAvatar(
-                  backgroundColor: Colors.green,
-                ),
-                title: Text('Completed the task'),
-                subtitle: Text('2 days ago'),
-              ),
-            ),
-            PopupMenuItem<String>(
-              value: 'Value4',
-              child: Text(
-                'All notifications',
-                style: TextStyle(color: Colors.blue),
-              ),
-            ),
-          ],
-          child: Icon(Icons.add_alert),
+          ),
         ),
-        IconButton(icon: Icon(Icons.chat_bubble_outline), onPressed: () {}),
-        IconButton(icon: Icon(Icons.email), onPressed: () {}),
+        Padding(
+          padding: const EdgeInsets.only(left:8.0,right:8.0),
+          child: Container(
+            height: 45,
+
+            child: OutlineButton(
+              child: Icon(Icons.notifications,color: Colors.grey,),
+              color:Colors.grey,
+              borderSide: BorderSide(
+                  color:Colors.grey,
+                  style: BorderStyle.solid,
+                  width: 0.8
+
+              ),
+    onPressed: (){
+
+    },
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left:8.0,right:8.0),
+          child: Container(
+            height: 45,
+
+            child: OutlineButton(
+                child: Icon(Icons.person_outline,color:Colors.amberAccent),
+              borderSide: BorderSide(
+                color:Colors.amberAccent,
+                  style: BorderStyle.solid,
+                  width: 0.8
+
+              ),
+                color:Colors.amberAccent,
+    onPressed: (){
+
+    },
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left:8.0,right:8.0),
+          child: Container(
+            height: 45,
+
+            child: OutlineButton(
+                child: Icon(Icons.power_settings_new,color: Colors.red,),
+                color:Colors.red,
+              borderSide: BorderSide(
+                color:Colors.red,
+                  style: BorderStyle.solid,
+                  width: 0.8
+
+
+              ),
+              onPressed: (){
+
+              },
+            ),
+          ),
+        ),
+//        Padding(
+//          padding: const EdgeInsets.all(8.0),
+//          child: PopupMenuButton(
+//            itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+//              PopupMenuItem<String>(
+//                value: 'Value1',
+//                child: FlatButton.icon(
+//                    onPressed: null,
+//                    icon: Icon(Icons.account_circle),
+//                    label: Text('Profile')),
+//              ),
+//              const PopupMenuItem<String>(
+//                value: 'Value2',
+//                child: Divider(),
+//              ),
+//              PopupMenuItem<String>(
+//                value: 'Value3',
+//                child: FlatButton.icon(
+//                    onPressed: null,
+//                    icon: Icon(Icons.power_settings_new),
+//                    label: Text('Logout')),
+//              ),
+//            ],
+//            child: CircleAvatar(
+//              backgroundColor: Colors.pink,
+//            ),
+//          ),
+//        ),
+//        PopupMenuButton(
+//          itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+//            PopupMenuItem<String>(
+//              value: 'Value1',
+//              child: Text('NOTIFICATIONS'),
+//            ),
+//            const PopupMenuItem<String>(
+//              value: 'Value2',
+//              child: Divider(
+//                height: 0,
+//              ),
+//            ),
+//            PopupMenuItem<String>(
+//              value: 'Value3',
+//              child: ListTile(
+//                leading: CircleAvatar(
+//                  backgroundColor: Colors.red,
+//                ),
+//                title: Text('Completed the task'),
+//                subtitle: Text('2 days ago'),
+//              ),
+//            ),
+//            PopupMenuItem<String>(
+//              value: 'Value3',
+//              child: ListTile(
+//                leading: CircleAvatar(
+//                  backgroundColor: Colors.blue,
+//                ),
+//                title: Text('Settings updated'),
+//                subtitle: Text('3 days ago'),
+//              ),
+//            ),
+//            PopupMenuItem<String>(
+//              value: 'Value3',
+//              child: ListTile(
+//                leading: CircleAvatar(
+//                  backgroundColor: Colors.green,
+//                ),
+//                title: Text('Completed the task'),
+//                subtitle: Text('2 days ago'),
+//              ),
+//            ),
+//            PopupMenuItem<String>(
+//              value: 'Value4',
+//              child: Text(
+//                'All notifications',
+//                style: TextStyle(color: Colors.blue),
+//              ),
+//            ),
+//          ],
+//          child: Icon(Icons.add_alert),
+//        ),
+//        IconButton(icon: Icon(Icons.chat_bubble_outline), onPressed: () {}),
+//        IconButton(icon: Icon(Icons.email), onPressed: () {}),
       ],
     );
   }
@@ -237,7 +364,7 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: <Widget>[
             //Taskbar
-            Container(height: 48, color: Colors.white, child: _buildTaskbar()),
+            Container(height: 60, color: Colors.white, child: _buildTaskbar()),
             //Row with 3 columns
             Expanded(
               child: Row(
