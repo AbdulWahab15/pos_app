@@ -4,25 +4,39 @@ import 'package:flutter/services.dart';
 import 'left_column.dart';
 
 class HomePage extends StatelessWidget {
-  List<Widget> _buildMiddleColumRowYellow(BuildContext context) {
-    List<Widget> boxes = List();
+//  List<Widget> _buildMiddleColumRowYellow(BuildContext context) {
+//    List<Widget> boxes = List();
+//    double height = (MediaQuery.of(context).size.height / 12) - 8;
+//    double width = (height * 2) - 8;
+//    for (int i = 0; i < 6; i++) {
+//      boxes.add(Card(
+//        child: Container(
+//          width: width,
+//          height: height,
+//          color: Colors.orange,
+//        ),
+//      ));
+//    }
+//    return boxes;
+//  }
+
+  _buildMiddleColumRowYellow(BuildContext context,Color color, String title,size ){
     double height = (MediaQuery.of(context).size.height / 12) - 8;
     double width = (height * 2) - 8;
-    for (int i = 0; i < 6; i++) {
-      boxes.add(Card(
-        child: Container(
-          width: width,
-          height: height,
-          color: Colors.orange,
-        ),
-      ));
-    }
-    return boxes;
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(12),
+      child: Container(
+        width: width,
+        height: height,
+        color: color,
+        child:Center(child: Text(title,style: TextStyle(color: Colors.white,fontSize: size),))
+      ),
+    );
   }
 
   List<Widget> _buildMiddleColumRowWhite(BuildContext context) {
     List<Widget> boxes = List();
-    double height = (MediaQuery.of(context).size.height / 10) - 8;
+    double height = (MediaQuery.of(context).size.height / 10) - 16;
     double width = (height * 2) - 8;
     for (int i = 0; i < 5; i++) {
       boxes.add(Card(
@@ -37,64 +51,136 @@ class HomePage extends StatelessWidget {
   }
 
   List<Widget> _buildMiddleColumRowWhiteSlim(
-      BuildContext context, Color tileColor) {
+      BuildContext context, Color tileColor, String title,size) {
     List<Widget> boxes = List();
-    double height = (MediaQuery.of(context).size.height / 12) - 8;
-    double width = (height * 2);
+    double height = (MediaQuery.of(context).size.height / 10) - 16;
+    double width = (height * 2) - 8;
     for (int i = 0; i < 5; i++) {
-      boxes.add(Card(
+      boxes.add(ClipRRect(
+        borderRadius: BorderRadius.circular(12),
         child: Container(
           width: width,
           height: height,
           color: tileColor,
+          child: Center(child: Text(title,style: TextStyle(fontSize: size),)),
         ),
       ));
     }
     return boxes;
   }
 
-  List<Widget> _buildMiddleColumRowBrown(BuildContext context, size) {
-    List<Widget> boxes = List();
-    double height = (MediaQuery.of(context).size.height / 12) - 8;
-    double width = (height * 2);
-    for (int i = 0; i < 4; i++) {
-      boxes.add(Card(
-        child: Container(
+  _buildMiddleColumYellow(BuildContext context,Color color, String title, size){
+    double height = (MediaQuery.of(context).size.height / 10) - 16;
+    double width = (height * 2) - 8;
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(12),
+      child: Container(
           width: width,
           height: height,
-          color: Colors.brown,
-        ),
-      ));
-    }
-    boxes.add(Card(
-      child: Container(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(left: 16),
-              child: Icon(
-                Icons.arrow_back_ios,
-                size: size * 2,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(right: 16),
-              child: Icon(
-                Icons.arrow_forward_ios,
-                size: size * 2,
-              ),
-            ),
-          ],
-        ),
-        width: width,
-        height: height,
-        color: Colors.white,
+          color: color,
+          child:Center(child: Text(title,style: TextStyle(color: Colors.white,fontSize: size),))
       ),
-    ));
-    return boxes;
+    );
   }
+//  List<Widget> _buildMiddleColumRowBrown(BuildContext context, size) {
+//    List<Widget> boxes = List();
+//    double height = (MediaQuery.of(context).size.height / 12) - 8;
+//    double width = (height * 2);
+////    for (int i = 0; i < 4; i++) {
+////      boxes.add(Card(
+////        child: Container(
+////          width: width,
+////          height: height,
+////          color: Colors.brown,
+////        ),
+////      ));
+////    }
+////    boxes.add(
+////      Card(
+////        child: Container(
+////
+////        ),
+////      )
+////    );
+//    boxes.add(Card(
+//
+//      child: Container(
+//        child: Row(
+//          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//          children: <Widget>[
+//            Padding(
+//              padding: const EdgeInsets.only(left: 16),
+//              child: Icon(
+//                Icons.arrow_back_ios,
+//                size: size * 2,
+//              ),
+//            ),
+//            Padding(
+//              padding: const EdgeInsets.only(right: 16),
+//              child: Icon(
+//                Icons.arrow_forward_ios,
+//                size: size * 2,
+//              ),
+//            ),
+//          ],
+//        ),
+//        width: width,
+//        height: height,
+//        color: Colors.white,
+//      ),
+//    ));
+//    return boxes;
+//  }
+  _buildMiddleColumRowBrown(BuildContext context, size) {
+    double height = (MediaQuery.of(context).size.height / 12) - 8;
+    double width = (height * 2);
+//    for (int i = 0; i < 4; i++) {
+//      boxes.add(Card(
+//        child: Container(
+//          width: width,
+//          height: height,
+//          color: Colors.brown,
+//        ),
+//      ));
+//    }
+//    boxes.add(
+//      Card(
+//        child: Container(
+//
+//        ),
+//      )
+//    );
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.only(left: 16,right: 16),
+          child: Container(
+            color: Colors.red,
+            width: width/2,
+            height: height,
+            child: Icon(
+              Icons.arrow_back_ios,
+              size: size * 2,
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left:16,right: 16),
+          child: Container(
+            color: Colors.red,
+            width: width/2,
+            height: height,
+            child: Icon(
+              Icons.arrow_forward_ios,
+              size: size * 2,
+            ),
+          ),
+        ),
+      ],
+    );
 
+  }
   Widget _buildTaskbar(size) {
     List<String> options = <String>['Mega', 'item2', 'item3'];
     String dropdownValue = 'Mega';
@@ -404,434 +490,471 @@ class HomePage extends StatelessWidget {
                 children: <Widget>[
                   //Left Column
                   Expanded(
+                    flex: 1,
                       child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: LeftColumn(),
                   )),
-                  //Middle Column
                   Expanded(
-                    flex: 4,
-                    child: Column(
+                    flex:4,
+                    child: Column(children: <Widget>[
+                    Row(
                       children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: _buildMiddleColumRowYellow(context),
+                        // Middle Column
+
+                        Expanded(
+                          flex: 4,
+                          child: Column(
+                            children: <Widget>[
+                              Padding(
+                                padding: const EdgeInsets.only(top:32.0,bottom:32.0,left:8,right:8),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  children: <Widget>[
+                                    _buildMiddleColumRowYellow(context, Colors.amber, 'SANDWICH',size),
+                                    _buildMiddleColumRowYellow(context, Colors.amber, 'TACOS',size),
+                                    _buildMiddleColumRowYellow(context, Colors.amber, 'TEX MEX',size),
+                                    _buildMiddleColumRowYellow(context, Colors.amber, 'HAMBURGER',size),
+                                    _buildMiddleColumRowYellow(context, Colors.amber, 'DESERT',size),
+                                    _buildMiddleColumRowYellow(context, Colors.red, '< BACK',size),
+
+
+                                  ],
+                                ),
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: _buildMiddleColumRowWhite(context),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 16),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  children: _buildMiddleColumRowWhite(context),
+                                ),
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: _buildMiddleColumRowWhite(context),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 16),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  children: _buildMiddleColumRowWhite(context),
+                                ),
+                              ),
+
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 16, top: 8,left:8),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  children: <Widget>[
+                                    _buildMiddleColumYellow(context, Colors.amber, 'SUR PLACE',size),
+                                    _buildMiddleColumYellow(context, Colors.amber, 'EMPORTER',size),
+                                    _buildMiddleColumYellow(context, Colors.amber, 'LIVRAISON',size),
+                                    _buildMiddleColumYellow(context, Colors.amber, 'SUR PLACE',size),
+                                    _buildMiddleColumRowBrown(context, size)
+
+
+
+                                  ],),
+                              ),
+//                        Expanded(child: Container()),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: _buildMiddleColumRowWhiteSlim(
+                                    context, Colors.white,"BUTTON",size),
+                              ),
+//                        Padding(
+//                          padding: const EdgeInsets.only(bottom: 8),
+//                          child: Row(
+//                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//                            children: _buildMiddleColumRowWhiteSlim(
+//                                context, Colors.blueGrey,""),
+//                          ),
+//                        ),
+                            ],
                           ),
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: _buildMiddleColumRowWhite(context),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 8),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: _buildMiddleColumRowWhite(context),
-                          ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: _buildMiddleColumRowWhite(context),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 8),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: _buildMiddleColumRowWhite(context),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 16, top: 8),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: _buildMiddleColumRowBrown(context, size),
-                          ),
-                        ),
-                        Expanded(child: Container()),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                            top: 16,
-                            bottom: 8,
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: _buildMiddleColumRowWhiteSlim(
-                                context, Colors.white),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 8),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: _buildMiddleColumRowWhiteSlim(
-                                context, Colors.blueGrey),
+
+                        //Right Column
+                        Expanded(
+                          flex: 2,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              color: Colors.white,
+                              child: Column(
+                                children: <Widget>[
+                                  Text('Under Construction'),
+                                ],
+                              ),
+//                        child: Column(
+//                          children: <Widget>[
+//                            Padding(
+//                              padding: const EdgeInsets.only(
+//                                  left: 16, right: 16, top: 8),
+//                              child: Row(
+//                                children: <Widget>[
+//                                  Text(
+//                                    'Products',
+//                                    style: TextStyle(fontSize: size),
+//                                  ),
+//                                  Icon(
+//                                    Icons.keyboard_arrow_down,
+//                                    size: size * 2,
+//                                  ),
+//                                  Expanded(child: Container()),
+//                                  Text(
+//                                    '#',
+//                                    style: TextStyle(fontSize: size),
+//                                  ),
+//                                  Padding(
+//                                    padding: const EdgeInsets.only(
+//                                        left: 16, right: 16),
+//                                    child: Text(
+//                                      'Price',
+//                                      style: TextStyle(fontSize: size),
+//                                    ),
+//                                  ),
+//                                  Text(
+//                                    'Total',
+//                                    style: TextStyle(fontSize: size),
+//                                  ),
+//                                ],
+//                              ),
+//                            ),
+//                            Padding(
+//                              padding: const EdgeInsets.only(
+//                                  left: 16, right: 16, top: 8, bottom: 16),
+//                              child: Card(
+//                                child: Container(
+//                                  height: height * 2.5,
+//                                  color: Colors.grey,
+//                                  child: Column(
+//                                    children: <Widget>[
+//                                      Padding(
+//                                        padding: const EdgeInsets.all(8.0),
+//                                        child: Row(
+//                                          children: <Widget>[
+//                                            Text(
+//                                              'Tenders theme and garlic',
+//                                              style: TextStyle(fontSize: size),
+//                                            ),
+//                                            Expanded(child: Container()),
+//                                            Text(
+//                                              '#',
+//                                              style: TextStyle(fontSize: size),
+//                                            ),
+//                                            Padding(
+//                                              padding: const EdgeInsets.only(
+//                                                  left: 16, right: 16),
+//                                              child: Text(
+//                                                'Price',
+//                                                style:
+//                                                    TextStyle(fontSize: size),
+//                                              ),
+//                                            ),
+//                                            Text(
+//                                              'Total',
+//                                              style: TextStyle(fontSize: size),
+//                                            ),
+//                                          ],
+//                                        ),
+//                                      ),
+//                                      Divider(
+//                                        height: 0,
+//                                      ),
+//                                      Expanded(child: Container()),
+//                                      Padding(
+//                                        padding: const EdgeInsets.all(16.0),
+//                                        child: Row(
+//                                          children: <Widget>[
+//                                            Container(
+//                                              child: Icon(
+//                                                Icons.keyboard_arrow_up,
+//                                                size: size * 2,
+//                                                color: Colors.white,
+//                                              ),
+//                                              height: size * 3,
+//                                              width: size * 3,
+//                                              color:
+//                                                  Colors.black.withOpacity(0.2),
+//                                            ),
+//                                            Expanded(child: Container()),
+//                                            Container(
+//                                              child: Icon(
+//                                                Icons.keyboard_arrow_down,
+//                                                size: size * 2,
+//                                                color: Colors.white,
+//                                              ),
+//                                              height: size * 3,
+//                                              width: size * 3,
+//                                              color:
+//                                                  Colors.black.withOpacity(0.2),
+//                                            ),
+//                                          ],
+//                                        ),
+//                                      ),
+//                                    ],
+//                                  ),
+//                                ),
+//                              ),
+//                            ),
+//                            Padding(
+//                              padding:
+//                                  const EdgeInsets.only(left: 16, right: 16),
+//                              child: Container(
+//                                color: Colors.blueGrey,
+//                                child: Padding(
+//                                  padding: const EdgeInsets.all(8.0),
+//                                  child: Row(
+//                                      mainAxisAlignment:
+//                                          MainAxisAlignment.spaceBetween,
+//                                      // blue area here
+//                                      children: _buildBlueArea(size)),
+//                                ),
+//                              ),
+//                            ),
+//                            Expanded(
+//                              child: Padding(
+//                                padding: const EdgeInsets.all(16.0),
+//                                child: Row(
+//                                  mainAxisAlignment:
+//                                      MainAxisAlignment.spaceEvenly,
+//                                  children: <Widget>[
+//                                    Column(
+//                                      mainAxisAlignment:
+//                                          MainAxisAlignment.spaceBetween,
+//                                      children: <Widget>[
+//                                        Card(
+//                                          child: Container(
+//                                            color: Color(0xFFE6E6E6),
+//                                            child: Center(
+//                                                child: Text(
+//                                              '7',
+//                                              style: TextStyle(fontSize: size),
+//                                            )),
+//                                            height: height,
+//                                            width: height,
+//                                          ),
+//                                        ),
+//                                        Card(
+//                                          child: Container(
+//                                            color: Color(0xFFE6E6E6),
+//                                            child: Center(
+//                                                child: Text(
+//                                              '4',
+//                                              style: TextStyle(fontSize: size),
+//                                            )),
+//                                            height: height,
+//                                            width: height,
+//                                          ),
+//                                        ),
+//                                        Card(
+//                                          child: Container(
+//                                            color: Color(0xFFE6E6E6),
+//                                            child: Center(
+//                                                child: Text(
+//                                              '3',
+//                                              style: TextStyle(fontSize: size),
+//                                            )),
+//                                            height: height,
+//                                            width: height,
+//                                          ),
+//                                        ),
+//                                        Card(
+//                                          child: Container(
+//                                            color: Colors.red,
+//                                            child: Center(
+//                                                child: Text(
+//                                              'Cancel',
+//                                              style: TextStyle(fontSize: size),
+//                                            )),
+//                                            height: height,
+//                                            width: height,
+//                                          ),
+//                                        ),
+//                                      ],
+//                                    ),
+//                                    Column(
+//                                      mainAxisAlignment:
+//                                          MainAxisAlignment.spaceBetween,
+//                                      children: <Widget>[
+//                                        Card(
+//                                          child: Container(
+//                                            color: Color(0xFFE6E6E6),
+//                                            child: Center(
+//                                                child: Text(
+//                                              '8',
+//                                              style: TextStyle(fontSize: size),
+//                                            )),
+//                                            height: height,
+//                                            width: height,
+//                                          ),
+//                                        ),
+//                                        Card(
+//                                          child: Container(
+//                                            color: Color(0xFFE6E6E6),
+//                                            child: Center(
+//                                                child: Text(
+//                                              '5',
+//                                              style: TextStyle(fontSize: size),
+//                                            )),
+//                                            height: height,
+//                                            width: height,
+//                                          ),
+//                                        ),
+//                                        Card(
+//                                          child: Container(
+//                                            color: Color(0xFFE6E6E6),
+//                                            child: Center(
+//                                                child: Text(
+//                                              '2',
+//                                              style: TextStyle(fontSize: size),
+//                                            )),
+//                                            height: height,
+//                                            width: height,
+//                                          ),
+//                                        ),
+//                                        Card(
+//                                          child: Container(
+//                                            color: Color(0xFFE6E6E6),
+//                                            child: Center(
+//                                                child: Text(
+//                                              '0',
+//                                              style: TextStyle(fontSize: size),
+//                                            )),
+//                                            height: height,
+//                                            width: height,
+//                                          ),
+//                                        ),
+//                                      ],
+//                                    ),
+//                                    Column(
+//                                      mainAxisAlignment:
+//                                          MainAxisAlignment.spaceBetween,
+//                                      children: <Widget>[
+//                                        Card(
+//                                          child: Container(
+//                                            color: Color(0xFFE6E6E6),
+//                                            child: Center(
+//                                                child: Text(
+//                                              '9',
+//                                              style: TextStyle(fontSize: size),
+//                                            )),
+//                                            height: height,
+//                                            width: height,
+//                                          ),
+//                                        ),
+//                                        Card(
+//                                          child: Container(
+//                                            color: Color(0xFFE6E6E6),
+//                                            child: Center(
+//                                                child: Text(
+//                                              '6',
+//                                              style: TextStyle(fontSize: size),
+//                                            )),
+//                                            height: height,
+//                                            width: height,
+//                                          ),
+//                                        ),
+//                                        Card(
+//                                          child: Container(
+//                                            color: Color(0xFFE6E6E6),
+//                                            child: Center(
+//                                                child: Text(
+//                                              '1',
+//                                              style: TextStyle(fontSize: size),
+//                                            )),
+//                                            height: height,
+//                                            width: height,
+//                                          ),
+//                                        ),
+//                                        Card(
+//                                          child: Container(
+//                                            color: Color(0xFFE6E6E6),
+//                                            child: Center(
+//                                                child: Text(
+//                                              '00',
+//                                              style: TextStyle(fontSize: size),
+//                                            )),
+//                                            height: height,
+//                                            width: height,
+//                                          ),
+//                                        ),
+//                                      ],
+//                                    ),
+//                                    Column(
+//                                      mainAxisAlignment:
+//                                          MainAxisAlignment.spaceBetween,
+//                                      children: <Widget>[
+//                                        Card(
+//                                          child: Container(
+//                                            color: Colors.brown,
+//                                            child: Center(
+//                                                child: Text(
+//                                              'Clear',
+//                                              style: TextStyle(fontSize: size),
+//                                            )),
+//                                            height: height,
+//                                            width: height,
+//                                          ),
+//                                        ),
+//                                        Card(
+//                                          child: Container(
+//                                            color: Colors.black,
+//                                            child: Center(
+//                                                child: Text(
+//                                              '-',
+//                                              style: TextStyle(
+//                                                  fontSize: size * 2,
+//                                                  color: Colors.white),
+//                                            )),
+//                                            height: height,
+//                                            width: height,
+//                                          ),
+//                                        ),
+//                                        Card(
+//                                          child: Container(
+//                                            color: Colors.orange,
+//                                            child: Center(
+//                                                child: Text(
+//                                              'Enter',
+//                                              style: TextStyle(fontSize: size),
+//                                            )),
+//                                            height: height * 2,
+//                                            width: height,
+//                                          ),
+//                                        ),
+//                                      ],
+//                                    ),
+//                                  ],
+//                                ),
+//                              ),
+//                            ),
+//                            Row(
+//                                mainAxisAlignment:
+//                                    MainAxisAlignment.spaceAround,
+//                                children: _buildAddButtonRow(size, height)),
+//                          ],
+//                        ),
+                            ),
                           ),
                         ),
                       ],
                     ),
-                  ),
-                  //Right Column
-                  Expanded(
-                    flex: 2,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        color: Colors.white,
-                        child: Column(
-                          children: <Widget>[
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 16, right: 16, top: 8),
-                              child: Row(
-                                children: <Widget>[
-                                  Text(
-                                    'Products',
-                                    style: TextStyle(fontSize: size),
-                                  ),
-                                  Icon(
-                                    Icons.keyboard_arrow_down,
-                                    size: size * 2,
-                                  ),
-                                  Expanded(child: Container()),
-                                  Text(
-                                    '#',
-                                    style: TextStyle(fontSize: size),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 16, right: 16),
-                                    child: Text(
-                                      'Price',
-                                      style: TextStyle(fontSize: size),
-                                    ),
-                                  ),
-                                  Text(
-                                    'Total',
-                                    style: TextStyle(fontSize: size),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 16, right: 16, top: 8, bottom: 16),
-                              child: Card(
-                                child: Container(
-                                  height: height * 2.5,
-                                  color: Colors.grey,
-                                  child: Column(
-                                    children: <Widget>[
-                                      Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Row(
-                                          children: <Widget>[
-                                            Text(
-                                              'Tenders theme and garlic',
-                                              style: TextStyle(fontSize: size),
-                                            ),
-                                            Expanded(child: Container()),
-                                            Text(
-                                              '#',
-                                              style: TextStyle(fontSize: size),
-                                            ),
-                                            Padding(
-                                              padding: const EdgeInsets.only(
-                                                  left: 16, right: 16),
-                                              child: Text(
-                                                'Price',
-                                                style:
-                                                    TextStyle(fontSize: size),
-                                              ),
-                                            ),
-                                            Text(
-                                              'Total',
-                                              style: TextStyle(fontSize: size),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Divider(
-                                        height: 0,
-                                      ),
-                                      Expanded(child: Container()),
-                                      Padding(
-                                        padding: const EdgeInsets.all(16.0),
-                                        child: Row(
-                                          children: <Widget>[
-                                            Container(
-                                              child: Icon(
-                                                Icons.keyboard_arrow_up,
-                                                size: size * 2,
-                                                color: Colors.white,
-                                              ),
-                                              height: size * 3,
-                                              width: size * 3,
-                                              color:
-                                                  Colors.black.withOpacity(0.2),
-                                            ),
-                                            Expanded(child: Container()),
-                                            Container(
-                                              child: Icon(
-                                                Icons.keyboard_arrow_down,
-                                                size: size * 2,
-                                                color: Colors.white,
-                                              ),
-                                              height: size * 3,
-                                              width: size * 3,
-                                              color:
-                                                  Colors.black.withOpacity(0.2),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 16, right: 16),
-                              child: Container(
-                                color: Colors.blueGrey,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      // blue area here
-                                      children: _buildBlueArea(size)),
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: Padding(
-                                padding: const EdgeInsets.all(16.0),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: <Widget>[
-                                    Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: <Widget>[
-                                        Card(
-                                          child: Container(
-                                            color: Color(0xFFE6E6E6),
-                                            child: Center(
-                                                child: Text(
-                                              '7',
-                                              style: TextStyle(fontSize: size),
-                                            )),
-                                            height: height,
-                                            width: height,
-                                          ),
-                                        ),
-                                        Card(
-                                          child: Container(
-                                            color: Color(0xFFE6E6E6),
-                                            child: Center(
-                                                child: Text(
-                                              '4',
-                                              style: TextStyle(fontSize: size),
-                                            )),
-                                            height: height,
-                                            width: height,
-                                          ),
-                                        ),
-                                        Card(
-                                          child: Container(
-                                            color: Color(0xFFE6E6E6),
-                                            child: Center(
-                                                child: Text(
-                                              '3',
-                                              style: TextStyle(fontSize: size),
-                                            )),
-                                            height: height,
-                                            width: height,
-                                          ),
-                                        ),
-                                        Card(
-                                          child: Container(
-                                            color: Colors.red,
-                                            child: Center(
-                                                child: Text(
-                                              'Cancel',
-                                              style: TextStyle(fontSize: size),
-                                            )),
-                                            height: height,
-                                            width: height,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: <Widget>[
-                                        Card(
-                                          child: Container(
-                                            color: Color(0xFFE6E6E6),
-                                            child: Center(
-                                                child: Text(
-                                              '8',
-                                              style: TextStyle(fontSize: size),
-                                            )),
-                                            height: height,
-                                            width: height,
-                                          ),
-                                        ),
-                                        Card(
-                                          child: Container(
-                                            color: Color(0xFFE6E6E6),
-                                            child: Center(
-                                                child: Text(
-                                              '5',
-                                              style: TextStyle(fontSize: size),
-                                            )),
-                                            height: height,
-                                            width: height,
-                                          ),
-                                        ),
-                                        Card(
-                                          child: Container(
-                                            color: Color(0xFFE6E6E6),
-                                            child: Center(
-                                                child: Text(
-                                              '2',
-                                              style: TextStyle(fontSize: size),
-                                            )),
-                                            height: height,
-                                            width: height,
-                                          ),
-                                        ),
-                                        Card(
-                                          child: Container(
-                                            color: Color(0xFFE6E6E6),
-                                            child: Center(
-                                                child: Text(
-                                              '0',
-                                              style: TextStyle(fontSize: size),
-                                            )),
-                                            height: height,
-                                            width: height,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: <Widget>[
-                                        Card(
-                                          child: Container(
-                                            color: Color(0xFFE6E6E6),
-                                            child: Center(
-                                                child: Text(
-                                              '9',
-                                              style: TextStyle(fontSize: size),
-                                            )),
-                                            height: height,
-                                            width: height,
-                                          ),
-                                        ),
-                                        Card(
-                                          child: Container(
-                                            color: Color(0xFFE6E6E6),
-                                            child: Center(
-                                                child: Text(
-                                              '6',
-                                              style: TextStyle(fontSize: size),
-                                            )),
-                                            height: height,
-                                            width: height,
-                                          ),
-                                        ),
-                                        Card(
-                                          child: Container(
-                                            color: Color(0xFFE6E6E6),
-                                            child: Center(
-                                                child: Text(
-                                              '1',
-                                              style: TextStyle(fontSize: size),
-                                            )),
-                                            height: height,
-                                            width: height,
-                                          ),
-                                        ),
-                                        Card(
-                                          child: Container(
-                                            color: Color(0xFFE6E6E6),
-                                            child: Center(
-                                                child: Text(
-                                              '00',
-                                              style: TextStyle(fontSize: size),
-                                            )),
-                                            height: height,
-                                            width: height,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: <Widget>[
-                                        Card(
-                                          child: Container(
-                                            color: Colors.brown,
-                                            child: Center(
-                                                child: Text(
-                                              'Clear',
-                                              style: TextStyle(fontSize: size),
-                                            )),
-                                            height: height,
-                                            width: height,
-                                          ),
-                                        ),
-                                        Card(
-                                          child: Container(
-                                            color: Colors.black,
-                                            child: Center(
-                                                child: Text(
-                                              '-',
-                                              style: TextStyle(
-                                                  fontSize: size * 2,
-                                                  color: Colors.white),
-                                            )),
-                                            height: height,
-                                            width: height,
-                                          ),
-                                        ),
-                                        Card(
-                                          child: Container(
-                                            color: Colors.orange,
-                                            child: Center(
-                                                child: Text(
-                                              'Enter',
-                                              style: TextStyle(fontSize: size),
-                                            )),
-                                            height: height * 2,
-                                            width: height,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: _buildAddButtonRow(size, height)),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
+
+
+//                      Row(
+//                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//                        children: _buildlastButtonRow(context, size),
+//                      )
+                    ],),
+                  )
+
+
                 ],
               ),
             ),
@@ -841,6 +964,23 @@ class HomePage extends StatelessWidget {
     );
   }
 
+  _buildlastButtonRow(BuildContext context, size){
+    var labels =['STORE','PRODUCT','TABLE','COMMANDE','PAIEMENT','DISCOUNT','BUTTON'];
+    double height = (MediaQuery.of(context).size.height / 12) - 8;
+    double width = (height * 2);
+    List<Widget> bottomButton=List();
+    for(int i=0;i<7;i++){
+      bottomButton.add(ClipRRect(
+        borderRadius: BorderRadius.circular(12),
+        child: Container(
+            width: width,
+            height: height,
+            color: Colors.grey,
+            child:Center(child: Text(labels[i],style: TextStyle(color: Colors.white,fontSize: size),))
+        )));
+    }
+
+  }
   _buildBlueArea(size) {
     var labels = ['Graduity', 'Service', 'Tax', 'Total'];
     var prices = ['0.00', '0.00', '8.20', '9.20'];
@@ -870,6 +1010,7 @@ class HomePage extends StatelessWidget {
 
   _buildAddButtonRow(size, height) {
     List<Widget> buttonRow = List();
+
 
     for (int i = 0; i < 4; i++) {
       buttonRow.add(
