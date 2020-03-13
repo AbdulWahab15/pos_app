@@ -20,23 +20,27 @@ class HomePage extends StatelessWidget {
 //    return boxes;
 //  }
 
-  _buildMiddleColumRowYellow(BuildContext context,Color color, String title,size ){
+  _buildMiddleColumRowYellow(
+      BuildContext context, Color color, String title, size) {
     double height = (MediaQuery.of(context).size.height / 12) - 8;
     double width = (height * 2) - 8;
     return ClipRRect(
       borderRadius: BorderRadius.circular(12),
       child: Container(
-        width: width,
-        height: height,
-        color: color,
-        child:Center(child: Text(title,style: TextStyle(color: Colors.white,fontSize: size),))
-      ),
+          width: width,
+          height: height,
+          color: color,
+          child: Center(
+              child: Text(
+            title,
+            style: TextStyle(color: Colors.white, fontSize: size),
+          ))),
     );
   }
 
   List<Widget> _buildMiddleColumRowWhite(BuildContext context) {
     List<Widget> boxes = List();
-    double height = (MediaQuery.of(context).size.height / 10) - 16;
+    double height = (MediaQuery.of(context).size.height / 10) - 8;
     double width = (height * 2) - 8;
     for (int i = 0; i < 5; i++) {
       boxes.add(Card(
@@ -44,6 +48,7 @@ class HomePage extends StatelessWidget {
           width: width,
           height: height,
           color: Colors.white,
+
         ),
       ));
     }
@@ -51,9 +56,9 @@ class HomePage extends StatelessWidget {
   }
 
   List<Widget> _buildMiddleColumRowWhiteSlim(
-      BuildContext context, Color tileColor, String title,size) {
+      BuildContext context, Color tileColor, String title, size) {
     List<Widget> boxes = List();
-    double height = (MediaQuery.of(context).size.height / 10) - 16;
+    double height = (MediaQuery.of(context).size.height / 10) - 8;
     double width = (height * 2) - 8;
     for (int i = 0; i < 5; i++) {
       boxes.add(ClipRRect(
@@ -62,15 +67,38 @@ class HomePage extends StatelessWidget {
           width: width,
           height: height,
           color: tileColor,
-          child: Center(child: Text(title,style: TextStyle(fontSize: size),)),
+          child: Center(
+              child: Text(
+            title,
+            style: TextStyle(fontSize: size),
+          )),
         ),
       ));
     }
     return boxes;
   }
 
-  _buildMiddleColumYellow(BuildContext context,Color color, String title, size){
-    double height = (MediaQuery.of(context).size.height / 10) - 16;
+  _buildFirstColumnRowGrey(BuildContext context, String title, size) {
+    double height = (MediaQuery.of(context).size.height / 10) - 8;
+    double width = (height * 2) - 8;
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(12),
+      child: Container(
+        width: width,
+        height: height,
+        color: Colors.grey,
+        child: Center(
+            child: Text(
+          title,
+          style: TextStyle(fontSize: size, color: Colors.white),
+        )),
+      ),
+    );
+  }
+
+  _buildMiddleColumYellow(
+      BuildContext context, Color color, String title, size) {
+    double height = (MediaQuery.of(context).size.height / 10) - 8;
     double width = (height * 2) - 8;
     return ClipRRect(
       borderRadius: BorderRadius.circular(12),
@@ -78,10 +106,14 @@ class HomePage extends StatelessWidget {
           width: width,
           height: height,
           color: color,
-          child:Center(child: Text(title,style: TextStyle(color: Colors.white,fontSize: size),))
-      ),
+          child: Center(
+              child: Text(
+            title,
+            style: TextStyle(color: Colors.white, fontSize: size),
+          ))),
     );
   }
+
 //  List<Widget> _buildMiddleColumRowBrown(BuildContext context, size) {
 //    List<Widget> boxes = List();
 //    double height = (MediaQuery.of(context).size.height / 12) - 8;
@@ -132,8 +164,8 @@ class HomePage extends StatelessWidget {
 //    return boxes;
 //  }
   _buildMiddleColumRowBrown(BuildContext context, size) {
-    double height = (MediaQuery.of(context).size.height / 12) - 8;
-    double width = (height * 2);
+    double height = (MediaQuery.of(context).size.height / 10) - 8;
+    double width = (height * 2) - 8;
 //    for (int i = 0; i < 4; i++) {
 //      boxes.add(Card(
 //        child: Container(
@@ -150,37 +182,41 @@ class HomePage extends StatelessWidget {
 //        ),
 //      )
 //    );
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.only(left: 16,right: 16),
-          child: Container(
-            color: Colors.red,
-            width: width/2,
-            height: height,
-            child: Icon(
-              Icons.arrow_back_ios,
-              size: size * 2,
+    return Container(
+      width: width,
+      height: height,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: Container(
+              color: Colors.red,
+              width: width / 2,
+              height: height,
+              child: Icon(
+                Icons.arrow_back_ios,
+                size: size * 2,
+              ),
             ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left:16,right: 16),
-          child: Container(
-            color: Colors.red,
-            width: width/2,
-            height: height,
-            child: Icon(
-              Icons.arrow_forward_ios,
-              size: size * 2,
+          ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: Container(
+              color: Colors.red,
+              width: width / 2,
+              height: height,
+              child: Icon(
+                Icons.arrow_forward_ios,
+                size: size * 2,
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
-
   }
+
   Widget _buildTaskbar(size) {
     List<String> options = <String>['Mega', 'item2', 'item3'];
     String dropdownValue = 'Mega';
@@ -188,7 +224,13 @@ class HomePage extends StatelessWidget {
       children: <Widget>[
         Padding(
           padding: const EdgeInsets.only(left: 16, right: 8),
-          child: IconButton(icon: Icon(Icons.format_align_right,color: Colors.amberAccent,size: size,), onPressed: () {}),
+          child: IconButton(
+              icon: Icon(
+                Icons.format_align_right,
+                color: Colors.amberAccent,
+                size: size,
+              ),
+              onPressed: () {}),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -210,7 +252,6 @@ class HomePage extends StatelessWidget {
               icon: Icon(Icons.keyboard_arrow_down),
               items: options.map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
-
                   value: value,
                   child: Text(
                     value,
@@ -226,125 +267,99 @@ class HomePage extends StatelessWidget {
         ),
         Expanded(child: Container()),
         Padding(
-          padding: const EdgeInsets.only(left:8.0,right:8.0),
+          padding: const EdgeInsets.only(left: 8.0, right: 8.0),
           child: Container(
             height: 45,
             child: OutlineButton(
-
-              child: Text('Button',style: TextStyle(color: Colors.grey),),
-              color:Colors.grey,
-
-              borderSide: BorderSide(
-                  color:Colors.grey,
-                  style: BorderStyle.solid,
-                  width: 0.8
-
+              child: Text(
+                'Button',
+                style: TextStyle(color: Colors.grey),
               ),
-              onPressed: (){
-
-              },
+              color: Colors.grey,
+              borderSide: BorderSide(
+                  color: Colors.grey, style: BorderStyle.solid, width: 0.8),
+              onPressed: () {},
             ),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(left:8.0,right:8.0),
+          padding: const EdgeInsets.only(left: 8.0, right: 8.0),
           child: Container(
             height: 45,
-
             child: OutlineButton(
-              child: Text('Button',style: TextStyle(color: Colors.amberAccent),),
-              color:Colors.amberAccent,
-              borderSide: BorderSide(
-                  color:Colors.amberAccent,
-                  style: BorderStyle.solid,
-                  width: 0.8
-
-
+              child: Text(
+                'Button',
+                style: TextStyle(color: Colors.amberAccent),
               ),
-              onPressed: (){
-
-              },
+              color: Colors.amberAccent,
+              borderSide: BorderSide(
+                  color: Colors.amberAccent,
+                  style: BorderStyle.solid,
+                  width: 0.8),
+              onPressed: () {},
             ),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(left:8.0,right:8.0),
+          padding: const EdgeInsets.only(left: 8.0, right: 8.0),
           child: Container(
             height: 45,
-
             child: OutlineButton(
-              child: Text('Button',style: TextStyle(color: Colors.red),),
-              color:Colors.red,
-              borderSide: BorderSide(
-                  color:Colors.red,
-                  style: BorderStyle.solid,
-                  width: 0.8
-
+              child: Text(
+                'Button',
+                style: TextStyle(color: Colors.red),
               ),
-              onPressed: (){
-
-              },
+              color: Colors.red,
+              borderSide: BorderSide(
+                  color: Colors.red, style: BorderStyle.solid, width: 0.8),
+              onPressed: () {},
             ),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(left:8.0,right:8.0),
+          padding: const EdgeInsets.only(left: 8.0, right: 8.0),
           child: Container(
             height: 45,
-
             child: OutlineButton(
-              child: Icon(Icons.notifications,color: Colors.grey,),
-              color:Colors.grey,
-              borderSide: BorderSide(
-                  color:Colors.grey,
-                  style: BorderStyle.solid,
-                  width: 0.8
-
+              child: Icon(
+                Icons.notifications,
+                color: Colors.grey,
               ),
-              onPressed: (){
-
-              },
+              color: Colors.grey,
+              borderSide: BorderSide(
+                  color: Colors.grey, style: BorderStyle.solid, width: 0.8),
+              onPressed: () {},
             ),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(left:8.0,right:8.0),
+          padding: const EdgeInsets.only(left: 8.0, right: 8.0),
           child: Container(
             height: 45,
-
             child: OutlineButton(
-              child: Icon(Icons.person_outline,color:Colors.amberAccent),
+              child: Icon(Icons.person_outline, color: Colors.amberAccent),
               borderSide: BorderSide(
-                  color:Colors.amberAccent,
+                  color: Colors.amberAccent,
                   style: BorderStyle.solid,
-                  width: 0.8
-
-              ),
-              color:Colors.amberAccent,
-              onPressed: (){
-
-              },
+                  width: 0.8),
+              color: Colors.amberAccent,
+              onPressed: () {},
             ),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(left:8.0,right:8.0),
+          padding: const EdgeInsets.only(left: 8.0, right: 8.0),
           child: Container(
             height: 45,
-
             child: OutlineButton(
-              child: Icon(Icons.power_settings_new,color: Colors.red,),
-              color:Colors.red,
-              borderSide: BorderSide(
-                  color:Colors.red,
-                  style: BorderStyle.solid,
-                  width: 0.8
-
-
+              child: Icon(
+                Icons.power_settings_new,
+                color: Colors.red,
               ),
-              onPressed: (){
-
-              },
+              color: Colors.red,
+              borderSide: BorderSide(
+                  color: Colors.red, style: BorderStyle.solid, width: 0.8),
+              onPressed: () {},
             ),
           ),
         ),
@@ -490,106 +505,150 @@ class HomePage extends StatelessWidget {
                 children: <Widget>[
                   //Left Column
                   Expanded(
-                    flex: 1,
+                      flex: 1,
                       child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: LeftColumn(),
-                  )),
+                        padding: const EdgeInsets.all(8.0),
+                        child: LeftColumn(),
+                      )),
+                  // Middle Column
+
                   Expanded(
-                    flex:4,
-                    child: Column(children: <Widget>[
-                    Row(
+                    flex: 4,
+                    child: Column(
                       children: <Widget>[
-                        // Middle Column
-
-                        Expanded(
-                          flex: 4,
-                          child: Column(
+                        Padding(
+                          padding:
+                              const EdgeInsets.only(top: 32.0, bottom: 32.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: <Widget>[
-                              Padding(
-                                padding: const EdgeInsets.only(top:32.0,bottom:32.0,left:8,right:8),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  children: <Widget>[
-                                    _buildMiddleColumRowYellow(context, Colors.amber, 'SANDWICH',size),
-                                    _buildMiddleColumRowYellow(context, Colors.amber, 'TACOS',size),
-                                    _buildMiddleColumRowYellow(context, Colors.amber, 'TEX MEX',size),
-                                    _buildMiddleColumRowYellow(context, Colors.amber, 'HAMBURGER',size),
-                                    _buildMiddleColumRowYellow(context, Colors.amber, 'DESERT',size),
-                                    _buildMiddleColumRowYellow(context, Colors.red, '< BACK',size),
-
-
-                                  ],
-                                ),
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: _buildMiddleColumRowWhite(context),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(vertical: 16),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  children: _buildMiddleColumRowWhite(context),
-                                ),
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: _buildMiddleColumRowWhite(context),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(vertical: 16),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  children: _buildMiddleColumRowWhite(context),
-                                ),
-                              ),
-
-                              Padding(
-                                padding: const EdgeInsets.only(bottom: 16, top: 8,left:8),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  children: <Widget>[
-                                    _buildMiddleColumYellow(context, Colors.amber, 'SUR PLACE',size),
-                                    _buildMiddleColumYellow(context, Colors.amber, 'EMPORTER',size),
-                                    _buildMiddleColumYellow(context, Colors.amber, 'LIVRAISON',size),
-                                    _buildMiddleColumYellow(context, Colors.amber, 'SUR PLACE',size),
-                                    _buildMiddleColumRowBrown(context, size)
-
-
-
-                                  ],),
-                              ),
-//                        Expanded(child: Container()),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: _buildMiddleColumRowWhiteSlim(
-                                    context, Colors.white,"BUTTON",size),
-                              ),
-//                        Padding(
-//                          padding: const EdgeInsets.only(bottom: 8),
-//                          child: Row(
-//                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//                            children: _buildMiddleColumRowWhiteSlim(
-//                                context, Colors.blueGrey,""),
-//                          ),
-//                        ),
+                              _buildFirstColumnRowGrey(context, 'STORE', size),
+                              _buildFirstColumnRowGrey(
+                                  context, 'PRODUCT', size),
+                              _buildFirstColumnRowGrey(context, 'TABLE', size),
+                              _buildFirstColumnRowGrey(
+                                  context, 'COMMANDE', size),
+                              _buildFirstColumnRowGrey(
+                                  context, 'PAIEMENT', size),
                             ],
                           ),
                         ),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 16),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: <Widget>[
+                              _buildMiddleColumRowYellow(
+                                  context, Colors.amber, 'SANDWICH', size),
+                              _buildMiddleColumRowYellow(
+                                  context, Colors.amber, 'TACOS', size),
+                              _buildMiddleColumRowYellow(
+                                  context, Colors.amber, 'TEX MEX', size),
+                              _buildMiddleColumRowYellow(
+                                  context, Colors.amber, 'HAMBURGER', size),
+                              _buildMiddleColumRowYellow(
+                                  context, Colors.amber, 'DESERT', size),
+                              _buildMiddleColumRowYellow(
+                                  context, Colors.red, '< BACK', size),
+                            ],
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: _buildMiddleColumRowWhite(context),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 8),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: _buildMiddleColumRowWhite(context),
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: _buildMiddleColumRowWhite(context),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 8),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: _buildMiddleColumRowWhite(context),
+                          ),
+                        ),
 
-                        //Right Column
-                        Expanded(
-                          flex: 2,
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 16, top: 8),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: <Widget>[
+                              _buildMiddleColumYellow(
+                                  context, Colors.amber, 'SUR PLACE', size),
+                              _buildMiddleColumYellow(
+                                  context, Colors.amber, 'EMPORTER', size),
+                              _buildMiddleColumYellow(
+                                  context, Colors.amber, 'LIVRAISON', size),
+                              _buildMiddleColumYellow(
+                                  context, Colors.amber, 'SUR PLACE', size),
+//                              _buildMiddleColumYellow(context, Colors.amber, 'SUR PLACE',size),
+
+                              _buildMiddleColumRowBrown(context, size)
+                            ],
+                          ),
+                        ),
+//                        Expanded(child: Container()),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: _buildMiddleColumRowWhiteSlim(
+                              context, Colors.white, "BUTTON", size),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  Expanded(
+                    flex: 2,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        children: <Widget>[
+                          Expanded(
                             child: Container(
                               color: Colors.white,
-                              child: Column(
-                                children: <Widget>[
-                                  Text('Under Construction'),
-                                ],
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.only(top: 8.0, bottom: 8),
+                                child: Column(
+                                  children: <Widget>[
+                                    Expanded(
+                                      child: Column(
+                                        children: <Widget>[
+                                          _buildListTile(context,
+                                              '20',
+                                              'Olympic Soccer Ball',
+                                              '\$12',
+                                              size),
+                                          _buildListTile(context,'10',
+                                              'Phone Battery 10', '\$12', size),
+                                          _buildListTile(context,'12',
+                                              'Phone Battery 10', '\$12', size),
+
+//                                    Align(
+//                                      alignment: FractionalOffset.bottomCenter,
+//                                        child: Text('here we go'))
+                                        ],
+                                      ),
+                                    ),
+                                    Column(
+                                      children: <Widget>[
+
+                                        buildListTileBottom(
+                                            'Total =', '\$24', size)
+                                      ],
+                                    )
+                                  ],
+                                ),
                               ),
+
 //                        child: Column(
 //                          children: <Widget>[
 //                            Padding(
@@ -942,19 +1001,23 @@ class HomePage extends StatelessWidget {
 //                        ),
                             ),
                           ),
-                        ),
-                      ],
+                          Padding(
+                            padding: const EdgeInsets.only(top:8.0,bottom:8.0),
+                            child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+
+                                  _buildAddButtonRow(size, height, 'DISC/REF', Colors.blueGrey),
+                                  _buildAddButtonRow(size, height, '', Colors.blue),
+                                  _buildAddButtonRow(size, height, 'CANCEL', Colors.red),
+                                  _buildAddButtonRow(size, height, 'VALIDER ENCAISSER', Colors.green),
+
+                                ],
+                          ),)
+                        ],
+                      ),
                     ),
-
-
-//                      Row(
-//                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//                        children: _buildlastButtonRow(context, size),
-//                      )
-                    ],),
                   )
-
-
                 ],
               ),
             ),
@@ -964,23 +1027,66 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  _buildlastButtonRow(BuildContext context, size){
-    var labels =['STORE','PRODUCT','TABLE','COMMANDE','PAIEMENT','DISCOUNT','BUTTON'];
-    double height = (MediaQuery.of(context).size.height / 12) - 8;
-    double width = (height * 2);
-    List<Widget> bottomButton=List();
-    for(int i=0;i<7;i++){
-      bottomButton.add(ClipRRect(
-        borderRadius: BorderRadius.circular(12),
-        child: Container(
-            width: width,
-            height: height,
-            color: Colors.grey,
-            child:Center(child: Text(labels[i],style: TextStyle(color: Colors.white,fontSize: size),))
-        )));
-    }
-
+  _showbuttons(){
+    return Stack(
+      children: <Widget>[
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: <Widget>[
+            Icon(Icons.cancel),
+            Icon(Icons.mode_edit),
+            Icon(Icons.format_paint)
+          ],
+        )
+      ],
+    );
   }
+  _buildListTile(BuildContext context,leading, title, trailing, size) {
+    return Card(
+      color: Colors.white70,
+      child: ListTile(
+
+        leading: Card(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(leading, style: TextStyle(fontSize: size)),
+          ),
+        ),
+        title: Text(
+          title,
+          style: TextStyle(fontSize: size),
+        ),
+        trailing: Text(trailing, style: TextStyle(fontSize: size)),
+      ),
+    );
+  }
+
+  buildListTileBottom(title, trailing, size) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Card(
+          color: Colors.grey[400],
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ListTile(
+              leading: Text(''),
+              title: Text(
+                title,
+                style: TextStyle(
+                    fontSize: size + 2,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey[700]),
+              ),
+              trailing: Text(trailing,
+                  style: TextStyle(
+                      fontSize: size * 2,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey[700])),
+            ),
+          )),
+    );
+  }
+
   _buildBlueArea(size) {
     var labels = ['Graduity', 'Service', 'Tax', 'Total'];
     var prices = ['0.00', '0.00', '8.20', '9.20'];
@@ -1008,27 +1114,39 @@ class HomePage extends StatelessWidget {
     return blueAreaItems;
   }
 
-  _buildAddButtonRow(size, height) {
-    List<Widget> buttonRow = List();
-
-
-    for (int i = 0; i < 4; i++) {
-      buttonRow.add(
-        Card(
-          child: Container(
-            color: Colors.orange,
-            child: Center(
-                child: Text(
-              'Add Button',
-              style: TextStyle(fontSize: size / 1.5, color: Colors.black),
-            )),
-            height: height / 1.5,
-            width: height,
-          ),
-        ),
-      );
-    }
-
-    return buttonRow;
+  _buildAddButtonRow(size, height,title,color) {
+//    List<Widget> buttonRow = List();
+//
+//    for (int i = 0; i < 4; i++) {
+//      buttonRow.add(
+//        Card(
+//          child: Container(
+//            color: Colors.orange,
+//            child: Center(
+//                child: Text(
+//              'Add Button',
+//              style: TextStyle(fontSize: size / 1.5, color: Colors.black),
+//            )),
+//            height: height / 1.5,
+//            width: height,
+//          ),
+//        ),
+//      );
+//    }
+//
+//    return buttonRow;
+  return ClipRRect(
+    borderRadius: BorderRadius.circular(12.0),
+    child: Container(
+      color: color,
+              child: Center(
+                  child: Text(
+                '$title',
+                style: TextStyle(fontSize: size , color: Colors.white),
+              )),
+              height: height /1.2,
+              width: height*1.2,
+    ),
+  );
   }
 }
