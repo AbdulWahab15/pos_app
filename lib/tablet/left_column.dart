@@ -50,11 +50,11 @@ class LeftColumn extends StatelessWidget {
               padding: const EdgeInsets.only(right: 8),
               child: Icon(
                 Icons.search,
-                size: size,
+                size: size*2,
               ),
             ),
             Text(
-              'Search',
+              'Search connections',
               style: TextStyle(fontSize: size),
             ),
           ],
@@ -121,13 +121,13 @@ class LeftColumn extends StatelessWidget {
           children: <Widget>[
             Icon(
               icons[i],
-              size: size + 8,
+              size: size*2 ,
               color: selectedIndex == i ? Colors.orange : Colors.black,
             ),
             Text(
               labels[i],
               style: TextStyle(
-                fontSize: size,
+                fontSize: size+8,
                 color: selectedIndex == i ? Colors.orange : Colors.black,
               ),
             ),

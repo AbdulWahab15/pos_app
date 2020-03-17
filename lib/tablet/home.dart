@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/physics.dart';
 import 'package:flutter/services.dart';
 
 import 'left_column.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return HomePageState();
+  }
+}
+
+class HomePageState extends State<HomePage> {
 //  List<Widget> _buildMiddleColumRowYellow(BuildContext context) {
 //    List<Widget> boxes = List();
 //    double height = (MediaQuery.of(context).size.height / 12) - 8;
@@ -23,18 +32,32 @@ class HomePage extends StatelessWidget {
   _buildMiddleColumRowYellow(
       BuildContext context, Color color, String title, size) {
     double height = (MediaQuery.of(context).size.height / 12) - 8;
-    double width = (height * 2) - 8;
+    double width = (height * 2) - 10;
     return ClipRRect(
       borderRadius: BorderRadius.circular(12),
-      child: Container(
-          width: width,
-          height: height,
-          color: color,
-          child: Center(
-              child: Text(
-            title,
-            style: TextStyle(color: Colors.white, fontSize: size),
-          ))),
+      child: GestureDetector(
+        onTap: (){
+
+        },
+        child: Container(
+          decoration: BoxDecoration(
+            color: color,
+            boxShadow: [
+              BoxShadow(
+//                offset: Offset(10,10)
+              )
+            ]
+          ),
+//            color: color,
+            width: width,
+            height: height,
+//            color: color,
+            child: Center(
+                child: Text(
+              title,
+              style: TextStyle(color: Colors.white, fontSize: size),
+            ))),
+      ),
     );
   }
 
@@ -43,39 +66,48 @@ class HomePage extends StatelessWidget {
     double height = (MediaQuery.of(context).size.height / 10) - 8;
     double width = (height * 2) - 8;
     for (int i = 0; i < 5; i++) {
-      boxes.add(Card(
-        child: Container(
-          width: width,
-          height: height,
-          color: Colors.white,
+      boxes.add(GestureDetector(
+        onTap: (){
 
+        },
+        child: Card(
+          elevation: 16,
+          child: Container(
+            width: width,
+            height: height,
+            color: Colors.white,
+          ),
         ),
       ));
     }
     return boxes;
   }
 
-  List<Widget> _buildMiddleColumRowWhiteSlim(
+   _buildMiddleColumRowWhiteSlim(
       BuildContext context, Color tileColor, String title, size) {
-    List<Widget> boxes = List();
     double height = (MediaQuery.of(context).size.height / 10) - 8;
     double width = (height * 2) - 8;
-    for (int i = 0; i < 5; i++) {
-      boxes.add(ClipRRect(
+
+      return ClipRRect(
         borderRadius: BorderRadius.circular(12),
-        child: Container(
-          width: width,
-          height: height,
-          color: tileColor,
-          child: Center(
-              child: Text(
-            title,
-            style: TextStyle(fontSize: size),
-          )),
+        child: GestureDetector(
+          onTap: (){
+
+          },
+
+          child: Container(
+            width: width,
+            height: height,
+            color: tileColor,
+            child: Center(
+                child: Text(
+              title,
+              style: TextStyle(fontSize: size),
+            )),
+          ),
         ),
-      ));
-    }
-    return boxes;
+      );
+
   }
 
   _buildFirstColumnRowGrey(BuildContext context, String title, size) {
@@ -83,34 +115,51 @@ class HomePage extends StatelessWidget {
     double width = (height * 2) - 8;
     return ClipRRect(
       borderRadius: BorderRadius.circular(12),
-      child: Container(
-        width: width,
-        height: height,
-        color: Colors.grey,
-        child: Center(
-            child: Text(
-          title,
-          style: TextStyle(fontSize: size, color: Colors.white),
-        )),
+      child: GestureDetector(
+        onTap:(){
+
+        },
+        child: Container(
+          width: width,
+          height: height,
+          color: Colors.grey,
+          child: Center(
+              child: Text(
+            title,
+            style: TextStyle(fontSize: size, color: Colors.white),
+          )),
+        ),
       ),
     );
   }
 
   _buildMiddleColumYellow(
       BuildContext context, Color color, String title, size) {
-    double height = (MediaQuery.of(context).size.height / 10) - 8;
-    double width = (height * 2) - 8;
+    double height = (MediaQuery.of(context).size.height / 12) - 8;
+    double width = (height * 2.5) - 8;
     return ClipRRect(
       borderRadius: BorderRadius.circular(12),
-      child: Container(
-          width: width,
-          height: height,
-          color: color,
-          child: Center(
-              child: Text(
-            title,
-            style: TextStyle(color: Colors.white, fontSize: size),
-          ))),
+      child: GestureDetector(
+        onTap:(){
+
+        },
+        child: Container(
+          decoration: BoxDecoration(
+            color: color,
+            boxShadow: [
+              BoxShadow(
+
+              )
+            ]
+          ),
+            width: width,
+            height: height,
+            child: Center(
+                child: Text(
+              title,
+              style: TextStyle(color: Colors.white, fontSize: size),
+            ))),
+      ),
     );
   }
 
@@ -163,9 +212,9 @@ class HomePage extends StatelessWidget {
 //    ));
 //    return boxes;
 //  }
-  _buildMiddleColumRowBrown(BuildContext context, size) {
-    double height = (MediaQuery.of(context).size.height / 10) - 8;
-    double width = (height * 2) - 8;
+  _buildMiddleColumRowBrown(BuildContext context, size,color) {
+    double height = (MediaQuery.of(context).size.height / 12) - 8;
+    double width = (height * 2.5) - 8;
 //    for (int i = 0; i < 4; i++) {
 //      boxes.add(Card(
 //        child: Container(
@@ -190,25 +239,52 @@ class HomePage extends StatelessWidget {
         children: <Widget>[
           ClipRRect(
             borderRadius: BorderRadius.circular(12),
-            child: Container(
-              color: Colors.red,
-              width: width / 2,
-              height: height,
-              child: Icon(
-                Icons.arrow_back_ios,
-                size: size * 2,
+            child: GestureDetector(
+              onTap: (){
+
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                    color: color,
+                    boxShadow: [
+                      BoxShadow(
+
+                      )
+                    ]
+                ),
+                width: width / 2,
+                height: height,
+                child: Icon(
+                  Icons.arrow_back_ios,
+                  size: size * 2,
+                  color: Colors.white,
+                ),
               ),
             ),
           ),
           ClipRRect(
             borderRadius: BorderRadius.circular(12),
-            child: Container(
-              color: Colors.red,
-              width: width / 2,
-              height: height,
-              child: Icon(
-                Icons.arrow_forward_ios,
-                size: size * 2,
+            child: GestureDetector(
+              onTap: (){
+
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                    color: color,
+                    boxShadow: [
+                      BoxShadow(
+
+                      )
+                    ]
+                ),
+                width: width / 2,
+                height: height,
+                child: Icon(
+                  Icons.arrow_forward_ios,
+                  size: size * 2,
+                  color: Colors.white,
+
+                ),
               ),
             ),
           ),
@@ -307,6 +383,56 @@ class HomePage extends StatelessWidget {
             child: OutlineButton(
               child: Text(
                 'Button',
+                style: TextStyle(color: Colors.red),
+              ),
+              color: Colors.red,
+              borderSide: BorderSide(
+                  color: Colors.red, style: BorderStyle.solid, width: 0.8),
+              onPressed: () {},
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+          child: Container(
+            height: 45,
+            child: OutlineButton(
+              child: Text(
+                'DAY',
+                style: TextStyle(color: Colors.grey),
+              ),
+              color: Colors.grey,
+              borderSide: BorderSide(
+                  color: Colors.grey, style: BorderStyle.solid, width: 0.8),
+              onPressed: () {},
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+          child: Container(
+            height: 45,
+            child: OutlineButton(
+              child: Text(
+                'PARKED',
+                style: TextStyle(color: Colors.amberAccent),
+              ),
+              color: Colors.amberAccent,
+              borderSide: BorderSide(
+                  color: Colors.amberAccent,
+                  style: BorderStyle.solid,
+                  width: 0.8),
+              onPressed: () {},
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+          child: Container(
+            height: 45,
+            child: OutlineButton(
+              child: Text(
+                'HISTORY',
                 style: TextStyle(color: Colors.red),
               ),
               color: Colors.red,
@@ -591,15 +717,27 @@ class HomePage extends StatelessWidget {
                                   context, Colors.amber, 'SUR PLACE', size),
 //                              _buildMiddleColumYellow(context, Colors.amber, 'SUR PLACE',size),
 
-                              _buildMiddleColumRowBrown(context, size)
+                              _buildMiddleColumRowBrown(context, size, Colors.red)
                             ],
                           ),
                         ),
 //                        Expanded(child: Container()),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: _buildMiddleColumRowWhiteSlim(
-                              context, Colors.white, "BUTTON", size),
+                          children: <Widget>[
+                            _buildMiddleColumRowWhiteSlim(
+                                context, Colors.white, "TIME", size),
+                            _buildMiddleColumRowWhiteSlim(
+                                context, Colors.white, "BUTTON", size),
+                            _buildMiddleColumRowWhiteSlim(
+                                context, Colors.white, "CREDIT", size),
+                            _buildMiddleColumRowWhiteSlim(
+                                context, Colors.white, "EXCHANGE", size),
+                            _buildMiddleColumRowWhiteSlim(
+                                context, Colors.white, "CUSTOMER", size),
+
+
+                          ]
                         ),
                       ],
                     ),
@@ -622,15 +760,110 @@ class HomePage extends StatelessWidget {
                                     Expanded(
                                       child: Column(
                                         children: <Widget>[
-                                          _buildListTile(context,
-                                              '20',
-                                              'Olympic Soccer Ball',
-                                              '\$12',
-                                              size),
-                                          _buildListTile(context,'10',
-                                              'Phone Battery 10', '\$12', size),
-                                          _buildListTile(context,'12',
-                                              'Phone Battery 10', '\$12', size),
+                                          GestureDetector(
+                                            onLongPress: () {
+                                              print('long pressed');
+                                              setState(() {
+                                                tile1 = true;
+                                              });
+                                            },
+
+                                            onPanEnd: (_) {
+                                              print('Pan End');
+//          _longPressUp();
+                                            },
+
+                                            // for checking when an onPan is detected
+                                            onPanStart: (details) {
+                                              print('Pan Started: $details');
+                                            },
+
+                                            onLongPressUp: () {
+//                                              setState(() {
+//                                                tile1 = false;
+//                                              });
+                                              print('Long press up ');
+                                            },
+                                            child: tile1 == true
+                                                ? _buildListTileLong(
+                                                    context, '20', 'Olympic Soccer Ball', size)
+                                                : _buildListTile(
+                                                    context,
+                                                    '20',
+                                                    'Olympic Soccer Ball',
+                                                    '\$12',
+                                                    size,
+                                                    1),
+                                          ),
+                                          GestureDetector(
+                                            onLongPress: () {
+                                              print('long pressed');
+                                              setState(() {
+                                                tile2 = true;
+                                              });
+                                            },
+
+                                            onPanEnd: (_) {
+                                              print('Pan End');
+//          _longPressUp();
+                                            },
+
+                                            // for checking when an onPan is detected
+                                            onPanStart: (details) {
+                                              print('Pan Started: $details');
+                                            },
+
+                                            onLongPressUp: () {
+//                                              setState(() {
+//                                                tile2 = false;
+//                                              });
+                                              print('Long press up ');
+                                            },
+                                            child: tile2 == true ? _buildListTileLong(context, '10','Phone Battery 10', size): _buildListTile(
+                                                context,
+                                                '10',
+                                                'Phone Battery 10',
+                                                '\$12',
+                                                size,
+                                                2),
+                                          ),
+
+                                          GestureDetector(
+                                            onLongPress: () {
+                                              print('long pressed');
+                                              setState(() {
+                                                tile3 = true;
+                                              });
+                                            },
+
+                                            onPanEnd: (_) {
+                                              print('Pan End');
+//          _longPressUp();
+                                            },
+
+                                            // for checking when an onPan is detected
+                                            onPanStart: (details) {
+                                              print('Pan Started: $details');
+                                            },
+
+                                            onLongPressUp: () {
+//                                              setState(() {
+//                                                tile3 = false;
+//                                              });
+                                              print('Long press up ');
+                                            },
+                                            child: tile3 == true ? _buildListTileLong(context, '12', 'Phone Battery 10', size) :
+                                            _buildListTile(
+                                                context,
+                                                '12',
+                                                'Phone Battery 10',
+                                                '\$12',
+                                                size,
+                                                3),
+                                          )
+
+
+
 
 //                                    Align(
 //                                      alignment: FractionalOffset.bottomCenter,
@@ -640,6 +873,15 @@ class HomePage extends StatelessWidget {
                                     ),
                                     Column(
                                       children: <Widget>[
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Row(
+                                            mainAxisAlignment: MainAxisAlignment.end,
+                                            children: <Widget>[ _buildMiddleColumRowBrown(context, size,Colors.amber),],
+                                          ),
+                                        ),
+
+
 
                                         buildListTileBottom(
                                             'Total =', '\$24', size)
@@ -1002,18 +1244,22 @@ class HomePage extends StatelessWidget {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(top:8.0,bottom:8.0),
+                            padding:
+                                const EdgeInsets.only(top: 8.0, bottom: 8.0),
                             child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: <Widget>[
-
-                                  _buildAddButtonRow(size, height, 'DISC/REF', Colors.blueGrey),
-                                  _buildAddButtonRow(size, height, '', Colors.blue),
-                                  _buildAddButtonRow(size, height, 'CANCEL', Colors.red),
-                                  _buildAddButtonRow(size, height, 'VALIDER ENCAISSER', Colors.green),
-
-                                ],
-                          ),)
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                _buildAddButtonRow(
+                                    size, height, '%', Colors.blueGrey),
+                                _buildAddButtonRow(
+                                    size, height, 'PARK', Colors.blue),
+                                _buildAddButtonRow(
+                                    size, height, 'CANCEL', Colors.red),
+                                _buildAddButtonRow(size, height,
+                                    'VALIDER ENCAISSER', Colors.green),
+                              ],
+                            ),
+                          )
                         ],
                       ),
                     ),
@@ -1027,7 +1273,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  _showbuttons(){
+  _showbuttons() {
     return Stack(
       children: <Widget>[
         Row(
@@ -1041,22 +1287,196 @@ class HomePage extends StatelessWidget {
       ],
     );
   }
-  _buildListTile(BuildContext context,leading, title, trailing, size) {
+
+  _toolBar() {
+    print('I got called');
+    return Stack(children: <Widget>[
+      Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          Icon(Icons.edit),
+          Icon(Icons.edit),
+          Icon(Icons.edit),
+          Icon(Icons.edit),
+        ],
+      )
+    ]);
+  }
+
+  Color myColor = Colors.lightBlueAccent;
+  ListTile tile = ListTile(
+    title: Text('hu'),
+  );
+
+
+  bool tile1 = false, tile2 =false, tile3=false;
+
+  _buildListTile(BuildContext context, leading, title, trailing, size, index) {
+    ListTile listtile = ListTile(
+
+      leading: Card(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(leading, style: TextStyle(fontSize: size)),
+        ),
+      ),
+      title: Text(
+        title,
+        style: TextStyle(fontSize: size),
+      ),
+      trailing: Text(trailing, style: TextStyle(fontSize: size)),
+    );
+//    ListTile row= ListTile(
+//      leading: Icon(Icons.edit),
+//      title: Text('helo'),
+//      trailing:Text('vaio')
+//    );
+    bool options = true;
+    return Card(
+        color: Colors.white70,
+
+        child: listtile);
+  }
+
+  _showDialog(BuildContext context){
+     showDialog(context: context,
+
+      builder: (BuildContext context){
+      return Dialog(
+        child: Container(
+          width: MediaQuery.of(context).size.width/4,
+          height: MediaQuery.of(context).size.height/3,
+          color: Colors.white,
+        ),
+
+
+      );
+      }
+
+
+    );
+  }
+  _buildListTileLong(BuildContext context, leading, title, size) {
     return Card(
       color: Colors.white70,
       child: ListTile(
-
         leading: Card(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(leading, style: TextStyle(fontSize: size)),
           ),
         ),
-        title: Text(
-          title,
-          style: TextStyle(fontSize: size),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Text(
+              title,
+              style: TextStyle(fontSize: size),
+            ),
+            Row(
+              children: <Widget>[
+                Card(
+
+                  color: Colors.green,
+                  child: IconButton(
+                    onPressed: (){
+                      _showDialog(context);
+                      if(tile1==true){
+                        setState(() {
+                          tile1=false;
+                        });
+                      }
+                      else if(tile2== true){
+                        setState(() {
+                          tile2=false;
+                        });
+                      }
+                      else{
+                        setState(() {
+                          tile3=false;
+                        });
+                      }
+
+                    },
+                    icon:Icon(Icons.person_outline,color: Colors.white,size: 30,),
+                  ),
+                ),
+                Card(
+                  color: Colors.grey,
+                  child: IconButton(
+                    onPressed: (){
+                      _showDialog(context);
+                      if(tile1==true){
+                        setState(() {
+                          tile1=false;
+                        });
+                      }
+                      else if(tile2== true){
+                        setState(() {
+                          tile2=false;
+                        });
+                      }
+                      else{
+                        setState(() {
+                          tile3=false;
+                        });
+                      }                    },
+                    icon:Icon(Icons.linear_scale,color: Colors.white,size: 30,),
+                  ),
+                ),
+                Card(
+                  color: Colors.amber,
+                  child: IconButton(
+                    onPressed: (){
+                      _showDialog(context);
+                      if(tile1==true){
+                        setState(() {
+                          tile1=false;
+                        });
+                      }
+                      else if(tile2== true){
+                        setState(() {
+                          tile2=false;
+                        });
+                      }
+                      else{
+                        setState(() {
+                          tile3=false;
+                        });
+                      }                    },
+                    icon:Icon(Icons.close,color: Colors.white,size: 30,),
+                  ),
+                ),
+                Card(
+                  color: Colors.red,
+                  child: IconButton(
+                    onPressed: (){
+                      _showDialog(context);
+                      if(tile1==true){
+                        setState(() {
+                          tile1=false;
+                        });
+                      }
+                      else if(tile2== true){
+                        setState(() {
+                          tile2=false;
+                        });
+                      }
+                      else{
+                        setState(() {
+                          tile3=false;
+                        });
+                      }
+                    },
+                    icon:Icon(Icons.edit,color: Colors.white,size: 30,),
+                  ),
+                ),
+
+
+              ],
+            )
+          ],
         ),
-        trailing: Text(trailing, style: TextStyle(fontSize: size)),
       ),
     );
   }
@@ -1114,7 +1534,7 @@ class HomePage extends StatelessWidget {
     return blueAreaItems;
   }
 
-  _buildAddButtonRow(size, height,title,color) {
+  _buildAddButtonRow(size, height, title, color) {
 //    List<Widget> buttonRow = List();
 //
 //    for (int i = 0; i < 4; i++) {
@@ -1135,18 +1555,18 @@ class HomePage extends StatelessWidget {
 //    }
 //
 //    return buttonRow;
-  return ClipRRect(
-    borderRadius: BorderRadius.circular(12.0),
-    child: Container(
-      color: color,
-              child: Center(
-                  child: Text(
-                '$title',
-                style: TextStyle(fontSize: size , color: Colors.white),
-              )),
-              height: height /1.2,
-              width: height*1.2,
-    ),
-  );
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(12.0),
+      child: Container(
+        color: color,
+        child: Center(
+            child: Text(
+          '$title',
+          style: TextStyle(fontSize: size, color: Colors.white),
+        )),
+        height: height / 1.2,
+        width: height * 1.2,
+      ),
+    );
   }
 }
