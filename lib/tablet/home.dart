@@ -1317,7 +1317,7 @@ class HomePageState extends State<HomePage> {
       leading: Card(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text(leading, style: TextStyle(fontSize: size)),
+          child: Container(width: size * 3, alignment: Alignment.center, child: Text(leading, style: TextStyle(fontSize: size))),
         ),
       ),
       title: Text(
@@ -1363,7 +1363,7 @@ class HomePageState extends State<HomePage> {
         leading: Card(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text(leading, style: TextStyle(fontSize: size)),
+            child: Container(width: size * 3, alignment: Alignment.center, child: Text(leading, style: TextStyle(fontSize: size))),
           ),
         ),
         title: Row(
