@@ -1385,8 +1385,8 @@ class HomePageState extends State<HomePage> {
     ListTile listtile = ListTile(
       leading: Card(
         child: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: Text(leading, style: TextStyle(fontSize: size)),
+          padding: const EdgeInsets.all(8.0),
+          child: Container(width:size*3,alignment:Alignment.center,child: Text(leading, style: TextStyle(fontSize: size))),
         ),
       ),
       title: Text(
@@ -1455,8 +1455,8 @@ class HomePageState extends State<HomePage> {
         child: ListTile(
           leading: Card(
             child: Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Text(leading, style: TextStyle(fontSize: size)),
+              padding: const EdgeInsets.all(8.0),
+              child: Container(width:size*3,alignment:Alignment.center,child: Text(leading, style: TextStyle(fontSize: size))),
             ),
           ),
           title: Row(
