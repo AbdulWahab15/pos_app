@@ -50,12 +50,12 @@ class LeftColumn extends StatelessWidget {
               padding: const EdgeInsets.only(right: 8),
               child: Icon(
                 Icons.search,
-                size: size*2,
+                size: size,
               ),
             ),
             Text(
               'Search connections',
-              style: TextStyle(fontSize: size),
+              style: TextStyle(fontSize: size - 2),
             ),
           ],
         ),

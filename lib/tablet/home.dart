@@ -36,27 +36,24 @@ class HomePageState extends State<HomePage> {
     return ClipRRect(
       borderRadius: BorderRadius.circular(12),
       child: GestureDetector(
-        onTap: (){
+        onTap: () {},
+        child: Card(
+          elevation: 16,
+          color: color,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          
+          child: Container(
 
-        },
-        child: Container(
-          decoration: BoxDecoration(
-            color: color,
-            boxShadow: [
-              BoxShadow(
-//                offset: Offset(10,10)
-              )
-            ]
-          ),
 //            color: color,
-            width: width,
-            height: height,
+              width: width,
+              height: height,
 //            color: color,
-            child: Center(
-                child: Text(
-              title,
-              style: TextStyle(color: Colors.white, fontSize: size),
-            ))),
+              child: Center(
+                  child: Text(
+                title,
+                style: TextStyle(color: Colors.white, fontSize: size + 2),
+              ))),
+        ),
       ),
     );
   }
@@ -67,9 +64,7 @@ class HomePageState extends State<HomePage> {
     double width = (height * 2) - 8;
     for (int i = 0; i < 5; i++) {
       boxes.add(GestureDetector(
-        onTap: (){
-
-        },
+        onTap: () {},
         child: Card(
           elevation: 16,
           child: Container(
@@ -83,31 +78,27 @@ class HomePageState extends State<HomePage> {
     return boxes;
   }
 
-   _buildMiddleColumRowWhiteSlim(
+  _buildMiddleColumRowWhiteSlim(
       BuildContext context, Color tileColor, String title, size) {
     double height = (MediaQuery.of(context).size.height / 10) - 8;
     double width = (height * 2) - 8;
 
-      return ClipRRect(
-        borderRadius: BorderRadius.circular(12),
-        child: GestureDetector(
-          onTap: (){
-
-          },
-
-          child: Container(
-            width: width,
-            height: height,
-            color: tileColor,
-            child: Center(
-                child: Text(
-              title,
-              style: TextStyle(fontSize: size),
-            )),
-          ),
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(12),
+      child: GestureDetector(
+        onTap: () {},
+        child: Container(
+          width: width,
+          height: height,
+          color: tileColor,
+          child: Center(
+              child: Text(
+            title,
+            style: TextStyle(fontSize: size),
+          )),
         ),
-      );
-
+      ),
+    );
   }
 
   _buildFirstColumnRowGrey(BuildContext context, String title, size) {
@@ -116,9 +107,7 @@ class HomePageState extends State<HomePage> {
     return ClipRRect(
       borderRadius: BorderRadius.circular(12),
       child: GestureDetector(
-        onTap:(){
-
-        },
+        onTap: () {},
         child: Container(
           width: width,
           height: height,
@@ -136,29 +125,24 @@ class HomePageState extends State<HomePage> {
   _buildMiddleColumYellow(
       BuildContext context, Color color, String title, size) {
     double height = (MediaQuery.of(context).size.height / 12) - 8;
-    double width = (height * 2.5) - 8;
+    double width = (height * 2.2+4);
     return ClipRRect(
       borderRadius: BorderRadius.circular(12),
       child: GestureDetector(
-        onTap:(){
-
-        },
-        child: Container(
-          decoration: BoxDecoration(
-            color: color,
-            boxShadow: [
-              BoxShadow(
-
-              )
-            ]
-          ),
-            width: width,
-            height: height,
-            child: Center(
-                child: Text(
-              title,
-              style: TextStyle(color: Colors.white, fontSize: size),
-            ))),
+        onTap: () {},
+        child: Card(
+          color: color,
+          elevation: 16,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          child: Container(
+              width: width,
+              height: height,
+              child: Center(
+                  child: Text(
+                title,
+                style: TextStyle(color: Colors.white, fontSize: size+2),
+              ))),
+        ),
       ),
     );
   }
@@ -212,7 +196,7 @@ class HomePageState extends State<HomePage> {
 //    ));
 //    return boxes;
 //  }
-  _buildMiddleColumRowBrown(BuildContext context, size,color) {
+  _buildMiddleColumRowBrown(BuildContext context, size, color) {
     double height = (MediaQuery.of(context).size.height / 12) - 8;
     double width = (height * 2.5) - 8;
 //    for (int i = 0; i < 4; i++) {
@@ -231,67 +215,127 @@ class HomePageState extends State<HomePage> {
 //        ),
 //      )
 //    );
-    return Container(
-      width: width,
-      height: height,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[
-          ClipRRect(
-            borderRadius: BorderRadius.circular(12),
-            child: GestureDetector(
-              onTap: (){
+    return Card(
+      color: Colors.transparent,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      elevation: 16,
+      child: Container(
 
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                    color: color,
-                    boxShadow: [
-                      BoxShadow(
-
-                      )
-                    ]
-                ),
-                width: width / 2,
-                height: height,
-                child: Icon(
-                  Icons.arrow_back_ios,
-                  size: size * 2,
-                  color: Colors.white,
+        width: width,
+        height: height,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: GestureDetector(
+                onTap: () {},
+                child: Container(
+                  decoration:
+                      BoxDecoration(color: color, boxShadow: [BoxShadow()]),
+                  width: width / 2 -4,
+                  height: height,
+                  child: Icon(
+                    Icons.arrow_back_ios,
+                    size: size * 2,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
-          ),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(12),
-            child: GestureDetector(
-              onTap: (){
-
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                    color: color,
-                    boxShadow: [
-                      BoxShadow(
-
-                      )
-                    ]
-                ),
-                width: width / 2,
-                height: height,
-                child: Icon(
-                  Icons.arrow_forward_ios,
-                  size: size * 2,
-                  color: Colors.white,
-
+            ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: GestureDetector(
+                onTap: () {},
+                child: Container(
+                  decoration:
+                      BoxDecoration(color: color, boxShadow: [BoxShadow()]),
+                  width: width / 2 - 4,
+                  height: height,
+                  child: Icon(
+                    Icons.arrow_forward_ios,
+                    size: size * 2,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
+
+  _buildMiddleColumRightBrown(BuildContext context, size, color) {
+    double height = (MediaQuery.of(context).size.height / 12) - 8;
+    double width = (height * 2.5) - 12;
+//    for (int i = 0; i < 4; i++) {
+//      boxes.add(Card(
+//        child: Container(
+//          width: width,
+//          height: height,
+//          color: Colors.brown,
+//        ),
+//      ));
+//    }
+//    boxes.add(
+//      Card(
+//        child: Container(
+//
+//        ),
+//      )
+//    );
+    return Card(
+      color: Colors.transparent,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      elevation: 16,
+      child: Container(
+
+        width: width,
+        height: height,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: GestureDetector(
+                onTap: () {},
+                child: Container(
+                  decoration:
+                  BoxDecoration(color: color, boxShadow: [BoxShadow()]),
+                  width: width / 2 - 8,
+                  height: height,
+                  child: Icon(
+                    Icons.arrow_back_ios,
+                    size: size * 2,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: GestureDetector(
+                onTap: () {},
+                child: Container(
+                  decoration:
+                  BoxDecoration(color: color, boxShadow: [BoxShadow()]),
+                  width: width / 2 - 8,
+                  height: height,
+                  child: Icon(
+                    Icons.arrow_forward_ios,
+                    size: size * 2,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
 
   Widget _buildTaskbar(size) {
     List<String> options = <String>['Mega', 'item2', 'item3'];
@@ -352,6 +396,7 @@ class HomePageState extends State<HomePage> {
                 style: TextStyle(color: Colors.grey),
               ),
               color: Colors.grey,
+              shape: RoundedRectangleBorder(borderRadius:  BorderRadius.circular(12.0)),
               borderSide: BorderSide(
                   color: Colors.grey, style: BorderStyle.solid, width: 0.8),
               onPressed: () {},
@@ -368,6 +413,7 @@ class HomePageState extends State<HomePage> {
                 style: TextStyle(color: Colors.amberAccent),
               ),
               color: Colors.amberAccent,
+              shape: RoundedRectangleBorder(borderRadius:  BorderRadius.circular(12.0)),
               borderSide: BorderSide(
                   color: Colors.amberAccent,
                   style: BorderStyle.solid,
@@ -386,6 +432,7 @@ class HomePageState extends State<HomePage> {
                 style: TextStyle(color: Colors.red),
               ),
               color: Colors.red,
+              shape: RoundedRectangleBorder(borderRadius:  BorderRadius.circular(12.0)),
               borderSide: BorderSide(
                   color: Colors.red, style: BorderStyle.solid, width: 0.8),
               onPressed: () {},
@@ -402,6 +449,7 @@ class HomePageState extends State<HomePage> {
                 style: TextStyle(color: Colors.grey),
               ),
               color: Colors.grey,
+              shape: RoundedRectangleBorder(borderRadius:  BorderRadius.circular(12.0)),
               borderSide: BorderSide(
                   color: Colors.grey, style: BorderStyle.solid, width: 0.8),
               onPressed: () {},
@@ -418,6 +466,7 @@ class HomePageState extends State<HomePage> {
                 style: TextStyle(color: Colors.amberAccent),
               ),
               color: Colors.amberAccent,
+              shape: RoundedRectangleBorder(borderRadius:  BorderRadius.circular(12.0)),
               borderSide: BorderSide(
                   color: Colors.amberAccent,
                   style: BorderStyle.solid,
@@ -435,6 +484,7 @@ class HomePageState extends State<HomePage> {
                 'HISTORY',
                 style: TextStyle(color: Colors.red),
               ),
+              shape: RoundedRectangleBorder(borderRadius:  BorderRadius.circular(12.0)),
               color: Colors.red,
               borderSide: BorderSide(
                   color: Colors.red, style: BorderStyle.solid, width: 0.8),
@@ -452,6 +502,7 @@ class HomePageState extends State<HomePage> {
                 color: Colors.grey,
               ),
               color: Colors.grey,
+              shape: RoundedRectangleBorder(borderRadius:  BorderRadius.circular(12.0)),
               borderSide: BorderSide(
                   color: Colors.grey, style: BorderStyle.solid, width: 0.8),
               onPressed: () {},
@@ -468,6 +519,7 @@ class HomePageState extends State<HomePage> {
                   color: Colors.amberAccent,
                   style: BorderStyle.solid,
                   width: 0.8),
+              shape: RoundedRectangleBorder(borderRadius:  BorderRadius.circular(12.0)),
               color: Colors.amberAccent,
               onPressed: () {},
             ),
@@ -483,6 +535,7 @@ class HomePageState extends State<HomePage> {
                 color: Colors.red,
               ),
               color: Colors.red,
+              shape: RoundedRectangleBorder(borderRadius:  BorderRadius.circular(12.0)),
               borderSide: BorderSide(
                   color: Colors.red, style: BorderStyle.solid, width: 0.8),
               onPressed: () {},
@@ -631,7 +684,6 @@ class HomePageState extends State<HomePage> {
                 children: <Widget>[
                   //Left Column
                   Expanded(
-                      flex: 1,
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: LeftColumn(),
@@ -717,34 +769,32 @@ class HomePageState extends State<HomePage> {
                                   context, Colors.amber, 'SUR PLACE', size),
 //                              _buildMiddleColumYellow(context, Colors.amber, 'SUR PLACE',size),
 
-                              _buildMiddleColumRowBrown(context, size, Colors.red)
+                              _buildMiddleColumRowBrown(
+                                  context, size, Colors.red)
                             ],
                           ),
                         ),
 //                        Expanded(child: Container()),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: <Widget>[
-                            _buildMiddleColumRowWhiteSlim(
-                                context, Colors.white, "TIME", size),
-                            _buildMiddleColumRowWhiteSlim(
-                                context, Colors.white, "BUTTON", size),
-                            _buildMiddleColumRowWhiteSlim(
-                                context, Colors.white, "CREDIT", size),
-                            _buildMiddleColumRowWhiteSlim(
-                                context, Colors.white, "EXCHANGE", size),
-                            _buildMiddleColumRowWhiteSlim(
-                                context, Colors.white, "CUSTOMER", size),
-
-
-                          ]
-                        ),
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: <Widget>[
+                              _buildMiddleColumRowWhiteSlim(
+                                  context, Colors.white, "TIME", size),
+                              _buildMiddleColumRowWhiteSlim(
+                                  context, Colors.white, "BUTTON", size),
+                              _buildMiddleColumRowWhiteSlim(
+                                  context, Colors.white, "CREDIT", size),
+                              _buildMiddleColumRowWhiteSlim(
+                                  context, Colors.white, "EXCHANGE", size),
+                              _buildMiddleColumRowWhiteSlim(
+                                  context, Colors.white, "CUSTOMER", size),
+                            ]),
                       ],
                     ),
                   ),
 
                   Expanded(
-                    flex: 2,
+                    flex: 3,
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Column(
@@ -786,14 +836,17 @@ class HomePageState extends State<HomePage> {
                                             },
                                             child: tile1 == true
                                                 ? _buildListTileLong(
-                                                    context, '20', 'Olympic Soccer Ball', size)
-                                                : _buildListTile(
+                                                    context,
+                                                    '20',
+                                                    'Olympic Soccer Ball',
+                                                    size,1)
+                                                : option1 == true ?_buildListTile(
                                                     context,
                                                     '20',
                                                     'Olympic Soccer Ball',
                                                     '\$12',
                                                     size,
-                                                    1),
+                                                    1,'(\$8.00 off)'):_buildListTile(context, '20', 'Olympic Soccer Ball', '\$12', size,1, ''),
                                           ),
                                           GestureDetector(
                                             onLongPress: () {
@@ -819,13 +872,25 @@ class HomePageState extends State<HomePage> {
 //                                              });
                                               print('Long press up ');
                                             },
-                                            child: tile2 == true ? _buildListTileLong(context, '10','Phone Battery 10', size): _buildListTile(
+                                            child: tile2 == true
+                                                ? _buildListTileLong(
+                                                    context,
+                                                    '10',
+                                                    'Phone Battery 10',
+                                                    size,2)
+                                                : option2==true ? _buildListTile(
+                                                    context,
+                                                    '10',
+                                                    'Phone Battery 10',
+                                                    '\$12',
+                                                    size,
+                                                    2 ,'(\$8.00 off)'):_buildListTile(
                                                 context,
                                                 '10',
                                                 'Phone Battery 10',
                                                 '\$12',
                                                 size,
-                                                2),
+                                                2 ,''),
                                           ),
 
                                           GestureDetector(
@@ -852,18 +917,26 @@ class HomePageState extends State<HomePage> {
 //                                              });
                                               print('Long press up ');
                                             },
-                                            child: tile3 == true ? _buildListTileLong(context, '12', 'Phone Battery 10', size) :
-                                            _buildListTile(
+                                            child: tile3 == true
+                                                ? _buildListTileLong(
+                                                    context,
+                                                    '12',
+                                                    'Phone Battery 10',
+                                                    size,3)
+                                                : option3 == true? _buildListTile(
+                                                    context,
+                                                    '12',
+                                                    'Phone Battery 10',
+                                                    '\$12',
+                                                    size,
+                                                    3,'(\$8.00 off)'):_buildListTile(
                                                 context,
                                                 '12',
                                                 'Phone Battery 10',
                                                 '\$12',
                                                 size,
-                                                3),
+                                                3,''),
                                           )
-
-
-
 
 //                                    Align(
 //                                      alignment: FractionalOffset.bottomCenter,
@@ -876,13 +949,14 @@ class HomePageState extends State<HomePage> {
                                         Padding(
                                           padding: const EdgeInsets.all(8.0),
                                           child: Row(
-                                            mainAxisAlignment: MainAxisAlignment.end,
-                                            children: <Widget>[ _buildMiddleColumRowBrown(context, size,Colors.amber),],
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
+                                            children: <Widget>[
+                                              _buildMiddleColumRightBrown(
+                                                  context, size, Colors.amber),
+                                            ],
                                           ),
                                         ),
-
-
-
                                         buildListTileBottom(
                                             'Total =', '\$24', size)
                                       ],
@@ -1304,19 +1378,14 @@ class HomePageState extends State<HomePage> {
   }
 
   Color myColor = Colors.lightBlueAccent;
-  ListTile tile = ListTile(
-    title: Text('hu'),
-  );
 
+  bool tile1 = false, tile2 = false, tile3 = false, option1=false, option2 = false, option3=false;
 
-  bool tile1 = false, tile2 =false, tile3=false;
-
-  _buildListTile(BuildContext context, leading, title, trailing, size, index) {
+  _buildListTile(BuildContext context, leading, title, trailing, size, index, end) {
     ListTile listtile = ListTile(
-
       leading: Card(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(12.0),
           child: Text(leading, style: TextStyle(fontSize: size)),
         ),
       ),
@@ -1324,7 +1393,14 @@ class HomePageState extends State<HomePage> {
         title,
         style: TextStyle(fontSize: size),
       ),
-      trailing: Text(trailing, style: TextStyle(fontSize: size)),
+      trailing: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: <Widget>[
+
+          Text(trailing, style: TextStyle(fontSize: size)),
+          Text(end,style: TextStyle(fontSize: size,color: Colors.red,))
+        ],
+      ),
     );
 //    ListTile row= ListTile(
 //      leading: Icon(Icons.edit),
@@ -1332,150 +1408,174 @@ class HomePageState extends State<HomePage> {
 //      trailing:Text('vaio')
 //    );
     bool options = true;
-    return Card(
-        color: Colors.white70,
-
-        child: listtile);
+    return Card(color: Colors.white70, child: Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: listtile,
+    ));
   }
 
-  _showDialog(BuildContext context){
-     showDialog(context: context,
+  _showDialog(BuildContext context,tile) {
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            content: Container(
+              width: MediaQuery.of(context).size.width / 4,
+              height: MediaQuery.of(context).size.height / 3,
+              color: Colors.white,
+            ),
+            actions: <Widget>[
+              FlatButton(
+                onPressed: (){
+                  setState(() {
 
-      builder: (BuildContext context){
-      return Dialog(
-        child: Container(
-          width: MediaQuery.of(context).size.width/4,
-          height: MediaQuery.of(context).size.height/3,
-          color: Colors.white,
-        ),
-
-
-      );
-      }
-
-
-    );
+                    if(tile==1)
+                      option1=true;
+                    if(tile==2)
+                      option2=true;
+                    if(tile==3)
+                      option3=true;
+                    print(tile);
+                    Navigator.pop(context);
+                  });
+                },
+                child:Text('Ok'),
+              )
+            ],
+          );
+        });
   }
-  _buildListTileLong(BuildContext context, leading, title, size) {
+
+  _buildListTileLong(BuildContext context, leading, title, size,tile) {
     return Card(
       color: Colors.white70,
-      child: ListTile(
-        leading: Card(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(leading, style: TextStyle(fontSize: size)),
-          ),
-        ),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Text(
-              title,
-              style: TextStyle(fontSize: size),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ListTile(
+          leading: Card(
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Text(leading, style: TextStyle(fontSize: size)),
             ),
-            Row(
-              children: <Widget>[
-                Card(
-
-                  color: Colors.green,
-                  child: IconButton(
-                    onPressed: (){
-                      _showDialog(context);
-                      if(tile1==true){
-                        setState(() {
-                          tile1=false;
-                        });
-                      }
-                      else if(tile2== true){
-                        setState(() {
-                          tile2=false;
-                        });
-                      }
-                      else{
-                        setState(() {
-                          tile3=false;
-                        });
-                      }
-
-                    },
-                    icon:Icon(Icons.person_outline,color: Colors.white,size: 30,),
+          ),
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Text(
+                title,
+                style: TextStyle(fontSize: size),
+              ),
+              Row(
+                children: <Widget>[
+                  Card(
+                    color: Colors.green,
+                    child: IconButton(
+                      onPressed: () {
+                        _showDialog(context,tile);
+                        if (tile1 == true) {
+                          setState(() {
+                            tile1 = false;
+                          });
+                        } else if (tile2 == true) {
+                          setState(() {
+                            tile2 = false;
+                          });
+                        } else {
+                          setState(() {
+                            tile3 = false;
+                          });
+                        }
+                      },
+                      icon: Icon(
+                        Icons.person_outline,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                    ),
                   ),
-                ),
-                Card(
-                  color: Colors.grey,
-                  child: IconButton(
-                    onPressed: (){
-                      _showDialog(context);
-                      if(tile1==true){
-                        setState(() {
-                          tile1=false;
-                        });
-                      }
-                      else if(tile2== true){
-                        setState(() {
-                          tile2=false;
-                        });
-                      }
-                      else{
-                        setState(() {
-                          tile3=false;
-                        });
-                      }                    },
-                    icon:Icon(Icons.linear_scale,color: Colors.white,size: 30,),
+                  Card(
+                    color: Colors.grey,
+                    child: IconButton(
+                      onPressed: () {
+                        _showDialog(context,tile);
+                        if (tile1 == true) {
+                          setState(() {
+                            tile1 = false;
+                          });
+                        } else if (tile2 == true) {
+                          setState(() {
+                            tile2 = false;
+                          });
+                        } else {
+                          setState(() {
+                            tile3 = false;
+                          });
+                        }
+                      },
+                      icon: Icon(
+                        Icons.linear_scale,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                    ),
                   ),
-                ),
-                Card(
-                  color: Colors.amber,
-                  child: IconButton(
-                    onPressed: (){
-                      _showDialog(context);
-                      if(tile1==true){
-                        setState(() {
-                          tile1=false;
-                        });
-                      }
-                      else if(tile2== true){
-                        setState(() {
-                          tile2=false;
-                        });
-                      }
-                      else{
-                        setState(() {
-                          tile3=false;
-                        });
-                      }                    },
-                    icon:Icon(Icons.close,color: Colors.white,size: 30,),
+                  Card(
+                    color: Colors.amber,
+                    child: IconButton(
+                      onPressed: () {
+                        _showDialog(context,tile);
+                        if (tile1 == true) {
+                          setState(() {
+                            tile1 = false;
+                          });
+                        } else if (tile2 == true) {
+                          setState(() {
+                            tile2 = false;
+                          });
+                        } else {
+                          setState(() {
+                            tile3 = false;
+                          });
+                        }
+                      },
+                      icon: Icon(
+                        Icons.close,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                    ),
                   ),
-                ),
-                Card(
-                  color: Colors.red,
-                  child: IconButton(
-                    onPressed: (){
-                      _showDialog(context);
-                      if(tile1==true){
-                        setState(() {
-                          tile1=false;
-                        });
-                      }
-                      else if(tile2== true){
-                        setState(() {
-                          tile2=false;
-                        });
-                      }
-                      else{
-                        setState(() {
-                          tile3=false;
-                        });
-                      }
-                    },
-                    icon:Icon(Icons.edit,color: Colors.white,size: 30,),
+                  Card(
+                    color: Colors.red,
+                    child: IconButton(
+                      onPressed: () {
+                        _showDialog(context,tile);
+                        if (tile1 == true) {
+                          setState(() {
+                            tile1 = false;
+                          });
+                        } else if (tile2 == true) {
+                          setState(() {
+                            tile2 = false;
+                          });
+                        } else {
+                          setState(() {
+                            tile3 = false;
+                          });
+                        }
+                      },
+                      icon: Icon(
+                        Icons.edit,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                    ),
                   ),
-                ),
-
-
-              ],
-            )
-          ],
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -1563,6 +1663,7 @@ class HomePageState extends State<HomePage> {
             child: Text(
           '$title',
           style: TextStyle(fontSize: size, color: Colors.white),
+              textAlign: TextAlign.center,
         )),
         height: height / 1.2,
         width: height * 1.2,
